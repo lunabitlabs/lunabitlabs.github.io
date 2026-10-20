@@ -1,9 +1,17 @@
+---
+title: "Tiqan: Calisthenics Workout"
+permalink: /tiqan/
+# Tiqan's own page, outside the studio layout, in the app's "Vector" palette.
+# Its top bar, footer and head match Miqat's and Thaqib's pages.
+---
+{%- set app = apps | appBySlug("tiqan") -%}
+{%- set store = "https://apps.apple.com/app/id" + app.appStoreId -%}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tiqan — Train smarter. Get stronger.</title>
+  <title>Tiqan: Calisthenics Workout</title>
   <meta name="description" content="Tiqan is an adaptive calisthenics coach for iPhone, iPad, Mac and Apple Watch. It builds you a bodyweight plan for strength, skills, or mobility — and levels it up or down based on how each session actually goes.">
   <meta name="theme-color" content="#0A0F1C">
 
@@ -11,12 +19,14 @@
   <meta property="og:title" content="Tiqan — Train smarter. Get stronger.">
   <meta property="og:description" content="An adaptive calisthenics coach that builds a bodyweight plan for strength, skills, or mobility and progresses it automatically.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lunabitlabs.com/tiqan/">
-  <link rel="canonical" href="https://lunabitlabs.com/tiqan/">
-  <meta property="og:image" content="https://lunabitlabs.com/tiqan/tiqan-logo.png">
+  <meta property="og:url" content="{{ site.url }}/tiqan/">
+  <link rel="canonical" href="{{ site.url }}/tiqan/">
+  <meta property="og:image" content="{{ site.url }}/tiqan/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id={{ app.appStoreId }}">
 
-  <link rel="icon" type="image/png" href="tiqan-logo.png">
-  <link rel="apple-touch-icon" href="tiqan-logo.png">
+  <link rel="icon" href="/assets/apps/tiqan-256.png">
+  <link rel="apple-touch-icon" href="/assets/apps/tiqan-256.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +89,9 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+    /* The phone's glow reaches past the screen edge on phones: clip it, so the
+       page never scrolls sideways. */
+    html, body { overflow-x: clip; }
     a { color: inherit; }
     img { max-width: 100%; display: block; }
 
@@ -109,7 +122,7 @@
     }
     .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 13px 26px; display: flex; align-items: center; justify-content: space-between; }
     .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--text); }
-    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 4px 16px rgba(64,112,255,0.35); }
+    .brand img { width: 34px; height: 34px; filter: drop-shadow(0 4px 10px rgba(64,112,255,0.35)); }
     .brand span { font-family: var(--display); font-weight: 700; font-size: 1.28rem; letter-spacing: -0.02em; }
     .nav-links { display: flex; align-items: center; gap: 26px; }
     .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color .2s; }
@@ -278,14 +291,17 @@
     .final::before { content:""; position:absolute; top:-1px; left:22%; right:22%; height:1px; background: linear-gradient(90deg, transparent, rgba(150,150,255,0.7), transparent); }
     .final h2 { font-family: var(--display); font-weight: 700; font-size: clamp(2.1rem, 4.4vw, 3.1rem); letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 16px; }
     .final p { color: var(--muted); max-width: 520px; margin: 0 auto 30px; font-size: 1.06rem; }
+    .final .support-note { margin: 30px auto 0; font-size: 0.95rem; }
+    .final .support-note a { color: var(--text); font-weight: 600; }
 
     /* ---------- Footer ---------- */
     footer { margin-top: 70px; padding: 34px 0 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--muted-2); font-size: 0.9rem; }
     .foot-brand { display: flex; align-items: center; gap: 10px; }
-    .foot-brand img { width: 24px; height: 24px; border-radius: 6px; }
-    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .foot-brand img { width: 28px; height: 28px; }
+    .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer a { color: var(--muted); text-decoration: none; font-weight: 600; transition: color .2s; }
     footer a:hover { color: var(--text); }
-    @media (max-width: 640px){ footer { flex-direction: column; text-align: center; } }
+    @media (max-width: 640px){ footer { flex-direction: column; align-items: flex-start; } }
 
     @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } .phone--tilt { transform: none; } }
   </style>
@@ -298,16 +314,14 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a class="brand" href="./">
-        <span>Tiqan</span>
-      </a>
+      <a class="brand" href="/tiqan/"><img src="/assets/apps/tiqan-256.png" alt="" width="34" height="34"><span>Tiqan</span></a>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#goals">Goals</a>
         <a href="#skills">Skills</a>
         <a href="#watch">Watch</a>
-        <a href="privacy/">Privacy</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/tiqan/id6761499537" target="_blank" rel="noopener noreferrer">Download</a>
+        <a href="/tiqan/privacy/">Privacy</a>
+        <a class="nav-cta" href="{{ store }}">Download</a>
       </div>
     </div>
   </nav>
@@ -320,7 +334,7 @@
       <h1>Train smarter.<br><span class="grad">Get stronger.</span></h1>
       <p class="lede">Tiqan is an adaptive calisthenics coach. Answer a few quick questions and it builds a bodyweight plan that levels up — or eases back — based on how each session actually goes.</p>
       <div class="cta-row">
-        <a class="appstore" href="https://apps.apple.com/us/app/tiqan/id6761499537" target="_blank" rel="noopener noreferrer">
+        <a class="appstore" href="{{ store }}">
           <img src="appstorebadge.svg" alt="Download on the App Store">
         </a>
       </div>
@@ -541,24 +555,24 @@
     <section class="final">
       <h2>Train smarter. Get stronger.</h2>
       <p>Answer a few questions and Tiqan builds your plan. Free to start — upgrade to Tiqan Pro when you want every goal, every skill, and the full strength ladder.</p>
-      <a class="appstore" href="https://apps.apple.com/us/app/tiqan/id6761499537" target="_blank" rel="noopener noreferrer" style="display:inline-block;">
+      <a class="appstore" href="{{ store }}" style="display:inline-block;">
         <img src="appstorebadge.svg" alt="Download on the App Store" style="height:56px;">
       </a>
+      <p class="support-note">Questions or feedback? Write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
     </section>
 
     <!-- FOOTER -->
     <footer>
       <div class="foot-brand">
-        <img src="tiqan-logo.png" alt="">
-        <span>© 2026 <a href="/">Lunabit Labs</a></span>
+        <img src="/assets/apps/tiqan-256.png" alt="" width="28" height="28">
+        <span>© {{ build.year }} <a href="/">Lunabit Labs</a></span>
       </div>
-      <div>
-        <a href="mailto:support@luna.bh">support@luna.bh</a>
-        &nbsp;·&nbsp;
-        <a href="privacy/">Privacy Policy</a>
-        &nbsp;·&nbsp;
-        <a href="https://apps.apple.com/us/app/tiqan/id6761499537" target="_blank" rel="noopener noreferrer">App Store</a>
-      </div>
+      <nav class="foot-links" aria-label="Tiqan links">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="/tiqan/privacy/">Privacy Policy</a>
+        <a href="{{ store }}">App Store</a>
+        <a href="/#apps">More apps</a>
+      </nav>
     </footer>
   </div>
 </body>

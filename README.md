@@ -22,8 +22,8 @@ published and the live site stays as it was.
 |---|---|
 | `/` | `src/index.njk` |
 | `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there, from `src/_includes/partials/app-card.njk` |
-| `/<app>/` | `src/<app>/index.njk` (Tiqan: `src/tiqan/index.html`) |
-| `/<app>/privacy/` | `src/<app>/privacy.njk` (Tiqan: `src/tiqan/privacy/index.html`) |
+| `/<app>/` | `src/<app>/index.njk` |
+| `/<app>/privacy/` | `src/<app>/privacy.njk` |
 | `/thaqib/terms/` | `src/thaqib/terms.njk` |
 | `/privacy/` | `src/privacy.njk`, every app's policy |
 | `/blog/` | `src/blog/index.njk`, posts in `src/blog/posts/` |
@@ -34,8 +34,9 @@ published and the live site stays as it was.
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,
   `policy` for privacy and terms, `post` for the blog).
-- **Tiqan** keeps its own hand-made page: everything in `src/tiqan/` is
-  published exactly as written, without the shared layout.
+- **Tiqan** keeps its own hand-made page (`src/tiqan/index.njk`, the app's
+  "Vector" palette, its styles inline), with the same top bar, footer and links
+  as Miqat's and Thaqib's; its images sit beside it.
 - **Miqat** has its own themed page too: `src/miqat/index.njk` (a whole HTML
   document, no shared layout), `src/miqat/assets/miqat.css` and
   `src/miqat/assets/sky.js`. The hero is the live sky over Makkah: the app's sky

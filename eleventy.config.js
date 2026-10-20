@@ -14,10 +14,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/adhan/lib/bundles/adhan.umd.min.js": "miqat/assets/adhan.min.js" });
   eleventyConfig.addPassthroughCopy("src/site.webmanifest");
 
-  // Tiqan's page keeps its own hand-made design: every file in src/tiqan is
-  // published exactly as written.
-  eleventyConfig.addPassthroughCopy("src/tiqan");
-  eleventyConfig.ignores.add("src/tiqan/**");
+  // Tiqan's page keeps its own hand-made design (src/tiqan/index.njk); its
+  // images sit beside it.
+  eleventyConfig.addPassthroughCopy("src/tiqan/*.{jpg,png,svg}");
 
   // Blog posts: Markdown files in src/blog/posts. A post marked `draft: true`
   // is left out of the site entirely.
