@@ -13,9 +13,11 @@ permalink: /privacy/
     </div>
     <ul class="post-list">
       {%- for app in apps %}
+      {%- if app.privacy %}
       <li><a href="{{ app.privacy }}"><h2>{{ app.name }} Privacy Policy</h2></a></li>
       {%- if app.terms %}
       <li><a href="{{ app.terms }}"><h2>{{ app.name }} Terms of Service</h2></a></li>
+      {%- endif %}
       {%- endif %}
       {%- endfor %}
     </ul>

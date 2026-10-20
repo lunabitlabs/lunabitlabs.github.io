@@ -73,7 +73,24 @@
     "status": "soon",
     "accent": "#B4233C",
     "accentDark": "#F28A9B",
-    "tint": "linear-gradient(160deg, #CFE3C8 0%, #E9B3B5 60%, #B4233C 100%)",
+    "tint": "linear-gradient(160deg, #3F5A3A 0%, #8E2A3C 60%, #B4233C 100%)",
     "privacy": "/miqdar/privacy/"
+  },
+  {
+    "slug": "aan",
+    "name": "Aan",
+    "arabicName": "آن",
+    "storeName": "Aan",
+    "subtitle": "Reminders that know your day",
+    "summary": "Your reminders and your calendar in one calm place. Aan works with the lists and calendars you already have in Apple's Reminders and Calendar.",
+    "platforms": [
+      "iPhone",
+      "iPad"
+    ],
+    "languages": "English and Arabic",
+    "status": "soon",
+    "accent": "#1F6FE5",
+    "accentDark": "#8DBBFF",
+    "tint": "linear-gradient(160deg, #0B4CC2 0%, #1F6FE5 55%, #6DB1FF 100%)"
   }
 ]

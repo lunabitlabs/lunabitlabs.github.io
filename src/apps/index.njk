@@ -24,7 +24,9 @@ description: Every app from Lunabit Labs, with links to each one's page, the App
             {%- if app.status == "live" %}
             <a href="https://apps.apple.com/app/id{{ app.appStoreId }}">App Store</a>
             {%- endif %}
+            {%- if app.privacy %}
             <a href="{{ app.privacy }}">Privacy Policy</a>
+            {%- endif %}
             {%- if app.terms %}
             <a href="{{ app.terms }}">Terms of Service</a>
             {%- endif %}

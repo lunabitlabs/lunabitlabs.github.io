@@ -19,7 +19,7 @@ smartBanner: true
           {%- endif %}
           <ul class="chips" aria-label="Works on">{% for platform in app.platforms %}<li class="chip">{{ platform }}</li>{% endfor %}</ul>
         </div>
-        <p class="quick"><a href="{{ app.privacy }}">Privacy Policy</a>{% if app.terms %}<a href="{{ app.terms }}">Terms of Service</a>{% endif %}<a href="#support">Support</a></p>
+        <p class="quick">{% if app.privacy %}<a href="{{ app.privacy }}">Privacy Policy</a>{% endif %}{% if app.terms %}<a href="{{ app.terms }}">Terms of Service</a>{% endif %}<a href="#support">Support</a></p>
       </div>
       {%- if heroShot %}
       <img class="hero-shot" src="{{ heroShot }}" alt="{{ heroShotAlt }}" width="260">
