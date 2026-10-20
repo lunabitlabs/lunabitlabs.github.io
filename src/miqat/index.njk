@@ -1,95 +1,249 @@
 ---
-layout: layouts/app.njk
-appSlug: miqat
 title: "Miqat: Prayer Times and Qibla"
-ogTitle: "Miqat: Prayer Times and Qibla"
-ogImage: /assets/apps/miqat-384.png
-description: Miqat is a calm, accurate prayer times app for iPhone, iPad and Apple Watch, with the Qibla, a monthly view, the Hijri calendar and Home Screen widgets. In English and Arabic.
-heroShot: /miqat/img/01-today-bahrain.jpg
-heroShotAlt: "Miqat's Today screen: Maghrib in 53 minutes, with the day's prayer times."
+permalink: /miqat/
+# Miqat's own page, outside the studio layout (like Tiqan's): the app's type,
+# its live sky over Makkah, and its night. Styles in assets/miqat.css, the sky
+# in assets/sky.js.
 ---
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Prayer on time, with clarity and peace</h2>
-      <p>Miqat gives you accurate prayer times for where you are, in a clean, simple design that keeps the day clear and easy to follow.</p>
-    </div>
-    <div class="shots" role="list" aria-label="Screenshots">
-      <img role="listitem" src="/miqat/img/01-today-bahrain.jpg" alt="Today: the next prayer and the day's times" width="230" loading="lazy">
-      <img role="listitem" src="/miqat/img/02-sun-path-dubai.jpg" alt="The sun's path through the day" width="230" loading="lazy">
-      <img role="listitem" src="/miqat/img/03-night-makkah.jpg" alt="Night view in Makkah" width="230" loading="lazy">
-      <img role="listitem" src="/miqat/img/04-qibla.jpg" alt="The Qibla direction" width="230" loading="lazy">
-      <img role="listitem" src="/miqat/img/05-month.jpg" alt="The monthly view" width="230" loading="lazy">
-    </div>
-  </div>
-</section>
+{%- set app = apps | appBySlug("miqat") -%}
+{%- set store = "https://apps.apple.com/app/id" + app.appStoreId -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miqat: Prayer Times and Qibla</title>
+  <meta name="description" content="Miqat shows the day's prayers on a sky that follows the sun: a countdown to the next prayer, the sun's path from Fajr to Isha, the Qibla, and the Hijri calendar. For iPhone, iPad and Apple Watch, in English and Arabic.">
+  <link rel="canonical" href="{{ site.url }}/miqat/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Miqat: Prayer times, told by the sky">
+  <meta property="og:description" content="A calm prayer times app for iPhone, iPad and Apple Watch, in English and Arabic.">
+  <meta property="og:url" content="{{ site.url }}/miqat/">
+  <meta property="og:image" content="{{ site.url }}/miqat/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1224">
+  <meta name="apple-itunes-app" content="app-id={{ app.appStoreId }}">
+  <link rel="icon" href="/assets/apps/miqat-256.png">
+  <link rel="apple-touch-icon" href="/assets/apps/miqat-256.png">
+  <link rel="stylesheet" href="/miqat/assets/miqat.css?v={{ build.version }}">
+  <script defer src="/miqat/assets/adhan.min.js"></script>
+  <script defer src="/miqat/assets/sky.js?v={{ build.version }}"></script>
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="grain"></div>
 
-<section class="section" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="features">
-      <div class="feature">
-        <h3>Accurate, wherever you are</h3>
-        <p>Prayer times based on your location, or on a city you choose yourself. Location is optional.</p>
-      </div>
-      <div class="feature">
-        <h3>The day at a glance</h3>
-        <p>A clear daily schedule of every prayer, and the time left until the next one.</p>
-      </div>
-      <div class="feature">
-        <h3>Qibla</h3>
-        <p>A precise Qibla direction, wherever you are.</p>
-      </div>
-      <div class="feature">
-        <h3>The month, and the Hijri calendar</h3>
-        <p>An organised monthly view, with Hijri and Gregorian dates side by side.</p>
-      </div>
-      <div class="feature">
-        <h3>On your wrist and Home Screen</h3>
-        <p>An Apple Watch app and Home Screen widgets, so the next prayer is always a glance away.</p>
-      </div>
-      <div class="feature">
-        <h3>Arabic and English, no ads</h3>
-        <p>Full Arabic support, a calm, distraction-free design, and no ads.</p>
+  <nav class="nav" aria-label="Miqat">
+    <div class="nav-inner">
+      <a class="brand" href="/miqat/"><img src="/assets/apps/miqat-256.png" alt="" width="34" height="34"><span>Miqat</span></a>
+      <div class="nav-links">
+        <a href="#sky">Sky</a>
+        <a href="#alerts">Alerts</a>
+        <a href="#qibla">Qibla</a>
+        <a href="#watch">Watch</a>
+        <a href="#ipad">iPad</a>
+        <a href="/miqat/privacy/">Privacy</a>
+        <a class="nav-cta" href="{{ store }}">Download</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="section" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Apple Watch</h2>
-      <p>The day's prayers and the time to the next one, right on your wrist.</p>
+  <header class="hero" data-sky>
+    <div class="stars" data-sky-stars aria-hidden="true"></div>
+    <div class="hero-grid wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">iPhone · iPad · Apple Watch</span>
+        <h1>Prayer times, told by the sky.</h1>
+        <p class="lede">Miqat shows the day's prayers on a sky that follows the real sun: a countdown to the next prayer, the sun's path from Fajr to Isha, and every prayer in one clear list.</p>
+        <div class="cta-row">
+          <a class="appstore" href="{{ store }}"><img src="/assets/img/app-store-badge.svg" alt="Download Miqat on the App Store" width="162" height="54"></a>
+          <span class="hero-note">Free · No ads · English and <span lang="ar">العربية</span></span>
+        </div>
+      </div>
+      <div class="hero-phone">
+        <div class="phone-glow"></div>
+        <div class="phone"><img src="/miqat/img/today-dubai.jpg" alt="Miqat's Today page in Dubai: Maghrib in 37 minutes, the sun's path, and the day's prayers." width="598" height="1300"></div>
+      </div>
     </div>
-    <div class="shots watch" role="list" aria-label="Apple Watch screenshots">
-      <img role="listitem" src="/miqat/img/watch-01-today-manama.png" alt="Miqat on Apple Watch: Maghrib in 31 minutes" width="180" loading="lazy">
-      <img role="listitem" src="/miqat/img/watch-02-whole-day-manama.png" alt="Miqat on Apple Watch: the whole day" width="180" loading="lazy">
-      <img role="listitem" src="/miqat/img/watch-03-night-jakarta.png" alt="Miqat on Apple Watch at night" width="180" loading="lazy">
-    </div>
-  </div>
-</section>
 
-<section class="section" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>iPad</h2>
-      <p>On iPad, Miqat becomes a prayer board: the whole day, full screen, in English or Arabic.</p>
+    <div class="live" aria-label="The sky over Makkah, right now">
+      <div class="readout wrap">
+        <p class="place">The sky over Makkah, right now · <span data-sky-date></span></p>
+        <p class="label" data-sky-next></p>
+        <p class="count" data-sky-count></p>
+      </div>
+      <svg class="sunpath" data-sky-path aria-hidden="true" focusable="false"></svg>
+      <div class="glass">
+        <ol class="prayers wrap" data-sky-list>
+          <li data-prayer="fajr"><span class="name">Fajr <span class="tomorrow" data-tomorrow hidden>Tomorrow</span></span><span class="time" data-time></span></li>
+          <li data-prayer="sunrise"><span class="name">Sunrise <span class="tomorrow" data-tomorrow hidden></span></span><span class="time" data-time></span></li>
+          <li data-prayer="dhuhr"><span class="name">Dhuhr <span class="tomorrow" data-tomorrow hidden></span></span><span class="time" data-time></span></li>
+          <li data-prayer="asr"><span class="name">Asr <span class="tomorrow" data-tomorrow hidden></span></span><span class="time" data-time></span></li>
+          <li data-prayer="maghrib"><span class="name">Maghrib <span class="tomorrow" data-tomorrow hidden></span></span><span class="time" data-time></span></li>
+          <li data-prayer="isha"><span class="name">Isha <span class="tomorrow" data-tomorrow hidden></span></span><span class="time" data-time></span></li>
+        </ol>
+        <p class="glass-note wrap">Makkah time, by the Umm al-Qura method, as Miqat calculates it there. In the app, it's the sky where you are.</p>
+      </div>
     </div>
-    <img class="wide-shot" src="/miqat/img/ipad-board.jpg" alt="Miqat's prayer board on iPad, in landscape" width="1400" height="1050" loading="lazy">
-  </div>
-</section>
+  </header>
 
-<section class="section" id="support" style="padding-top: 0;">
-  <div class="wrap split">
-    <div class="note-card">
-      <h2>Privacy</h2>
-      <p>Miqat doesn't collect, sell or share personal information, and it has no servers of its own. Location is optional, and used only while the app is in use.</p>
-      <p style="margin: 0;"><a href="/miqat/privacy/">Read the privacy policy →</a></p>
+  <main>
+    <section class="wrap" aria-label="Miqat in numbers">
+      <div class="stats">
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Daily prayers</div></div>
+        <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Sun path</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Apple devices</div></div>
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">Languages</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-label">Ads</div></div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="feature" id="sky">
+        <div class="f-text">
+          <span class="section-eyebrow">A living sky</span>
+          <h2>The sky follows the <span class="grad">real sun</span>.</h2>
+          <p class="f-lede">Blue by day, warm at sunset, deep at night. Miqat's sky changes with the sun where you are, and its path traces the whole day with every prayer marked on it.</p>
+          <ul class="points">
+            <li>A countdown to the next prayer</li>
+            <li>The sun's path from Fajr to Isha</li>
+            <li>Every prayer in one clear list: the current one filled, the next one ringed</li>
+          </ul>
+        </div>
+        <div class="duo">
+          <div class="phone phone--back"><img src="/miqat/img/today-dubai.jpg" alt="Miqat by day in Dubai" width="598" height="1300" loading="lazy"></div>
+          <div class="phone phone--front"><img src="/miqat/img/night-makkah.jpg" alt="Miqat at night in Makkah: Fajr in 7 hours 36 minutes, with the moon over the horizon" width="598" height="1300" loading="lazy"></div>
+        </div>
+      </section>
+
+      <section class="feature feature--rev" id="alerts">
+        <div class="f-text">
+          <span class="section-eyebrow">Alerts</span>
+          <h2>Never miss a prayer.</h2>
+          <p class="f-lede">Choose how each prayer reaches you, right from its row in the list: a notification, an alarm, or nothing at all.</p>
+          <ul class="points">
+            <li>Notification, Alarm or Off, prayer by prayer</li>
+            <li>Time Sensitive alerts on your Lock Screen</li>
+            <li>A Live Activity and the Dynamic Island in the same design</li>
+          </ul>
+        </div>
+        <div class="single">
+          <div class="phone"><img src="/miqat/img/alert-sf.jpg" alt="A Time Sensitive Miqat alert, “It's time for Fajr prayer”, over the Today page" width="598" height="1300" loading="lazy"></div>
+        </div>
+      </section>
+
+      <section class="feature" id="qibla">
+        <div class="f-text">
+          <span class="section-eyebrow">Qibla</span>
+          <h2>Face the Kaaba, wherever you stand.</h2>
+          <p class="f-lede">A precise compass with the Kaaba on its dial. Turn until they meet.</p>
+          <ul class="points">
+            <li>The Qibla's bearing from north</li>
+            <li>Your distance to the Kaaba</li>
+            <li>The compass's accuracy, shown as you turn</li>
+          </ul>
+        </div>
+        <div class="single">
+          <div class="phone"><img src="/miqat/img/qibla.jpg" alt="Miqat's Qibla compass in Manama: 24 degrees, turn right; 246 degrees from north, 757 miles away" width="598" height="1300" loading="lazy"></div>
+        </div>
+      </section>
+
+      <section class="feature feature--rev">
+        <div class="f-text">
+          <span class="section-eyebrow">Prayer Calendar</span>
+          <h2>The whole month, and the Hijri calendar.</h2>
+          <p class="f-lede">A lighter, clearer Prayer Calendar: every day's times for the month, with Hijri and Gregorian dates side by side.</p>
+        </div>
+        <div class="single">
+          <div class="phone"><img src="/miqat/img/month.jpg" alt="Miqat's Prayer Calendar for October 2026, with Hijri dates beside each day" width="598" height="1300" loading="lazy"></div>
+        </div>
+      </section>
     </div>
-    <div class="note-card">
-      <h2>Support</h2>
-      <p>Questions, feedback, or something not working as it should? Write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
-      <p lang="ar" dir="rtl" style="margin: 0;">للدعم والملاحظات، راسلنا على <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+
+    <section class="band" id="watch">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="section-eyebrow">Apple Watch</span>
+          <h2>The day's prayers, on your wrist.</h2>
+          <p>The countdown and the sky on Apple Watch. Turn the Digital Crown to see the whole day, and find the Qibla from your wrist.</p>
+        </div>
+        <div class="watch-strip">
+          <div class="watch"><img src="/miqat/img/watch-day-manama.jpg" alt="Miqat on Apple Watch: the next prayer and its countdown" width="416" height="496" loading="lazy"></div>
+          <div class="watch"><img src="/miqat/img/watch-rest-manama.jpg" alt="Miqat on Apple Watch: the whole day's prayers" width="416" height="496" loading="lazy"></div>
+          <div class="watch"><img src="/miqat/img/watch-night-jakarta.jpg" alt="Miqat on Apple Watch at night" width="416" height="496" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="ipad">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="section-eyebrow">iPad</span>
+          <h2>A Prayer Board for iPad.</h2>
+          <p>The live sky, a clock, one list with an iqama column, and the ayat on a glass horizon.</p>
+        </div>
+        <div class="ipad"><img src="/miqat/img/board.jpg" alt="Miqat's Prayer Board on iPad in London: the time, Dhuhr in 2 hours 51 minutes, and the day's adhan and iqama times" width="1125" height="1500" loading="lazy"></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="section-eyebrow">Made with care</span>
+          <h2>Everywhere you pray.</h2>
+        </div>
+        <div class="extras-grid">
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="18" height="7.5" rx="2"/></svg>
+            <strong>Widgets</strong>
+            <p>On the Home Screen and the Lock Screen, and a small one that counts down to the next prayer.</p>
+          </div>
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M15 15.5l2.5 2.5L21 13"/></svg>
+            <strong>Siri and Shortcuts</strong>
+            <p>Ask Siri for the next prayer, today's times, or the time until a prayer.</p>
+          </div>
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+            <strong>English and Arabic</strong>
+            <p>Every screen in both languages, right to left included.</p>
+          </div>
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/></svg>
+            <strong>Private</strong>
+            <p>No ads, no account, no servers of its own. Your settings and location stay on your device.</p>
+          </div>
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <strong>Accurate times</strong>
+            <p>Calculated on your device for where you are, with the method your country uses.</p>
+          </div>
+          <div class="extra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><path d="M9 14.5c1.6 1.4 4.4 1.4 6 0"/></svg>
+            <strong>Five app icons</strong>
+            <p>Pick the one that suits your Home Screen, including the new Mihrab and Duo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <h2>Prayer on time, with clarity and peace.</h2>
+      <p>Miqat is free, with no ads. For iPhone, iPad and Apple Watch, in English and Arabic.</p>
+      <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="Download Miqat on the App Store" width="168" height="56" style="height: 56px;"></a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-brand"><img src="/assets/apps/miqat-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/">Lunabit Labs</a></span></div>
+      <div class="foot-links">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="/miqat/privacy/">Privacy Policy</a>
+        <a href="{{ store }}">App Store</a>
+        <a href="/apps/">More apps</a>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
+</body>
+</html>

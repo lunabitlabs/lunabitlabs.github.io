@@ -36,6 +36,13 @@ published and the live site stays as it was.
   `policy` for privacy and terms, `post` for the blog).
 - **Tiqan** keeps its own hand-made page: everything in `src/tiqan/` is
   published exactly as written, without the shared layout.
+- **Miqat** has its own themed page too: `src/miqat/index.njk` (a whole HTML
+  document, no shared layout), `src/miqat/assets/miqat.css` and
+  `src/miqat/assets/sky.js`. The hero is the live sky over Makkah: the app's sky
+  colours and sun path, with prayer times from adhan-js (npm `adhan`, pinned in
+  `package.json`, copied in at build) by the Umm al-Qura method, as the app.
+  Add `?at=2026-10-20T09:00:00Z` to the address to see the sky at another
+  moment. Screenshots in `src/miqat/img/` are raw app captures, framed by CSS.
 - **Policies** were moved from the old one-page sites word for word. When an
   app's policy changes, change it here and in the app (Thaqib also shows its
   terms and policy inside the app, in `LegalDocuments.swift`).
