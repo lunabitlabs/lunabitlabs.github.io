@@ -9,6 +9,8 @@ export default function (eleventyConfig) {
   // Miqat's page: its styles and sky script, and adhan-js (the prayer-time
   // library, MIT) straight from npm, so the version is pinned in package.json.
   eleventyConfig.addPassthroughCopy("src/miqat/assets");
+  eleventyConfig.addPassthroughCopy("src/thaqib/assets");
+  eleventyConfig.addPassthroughCopy("src/thaqib/img");
   eleventyConfig.addPassthroughCopy({ "node_modules/adhan/lib/bundles/adhan.umd.min.js": "miqat/assets/adhan.min.js" });
   eleventyConfig.addPassthroughCopy("src/site.webmanifest");
 

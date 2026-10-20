@@ -43,6 +43,12 @@ published and the live site stays as it was.
   `package.json`, copied in at build) by the Umm al-Qura method, as the app.
   Add `?at=2026-10-20T09:00:00Z` to the address to see the sky at another
   moment. Screenshots in `src/miqat/img/` are raw app captures, framed by CSS.
+- **Thaqib** has its own page as well: `src/thaqib/index.njk`, with
+  `src/thaqib/assets/thaqib.css` and `thaqib.js`. The night with twinkling and
+  shooting stars is ported from the app's `OnboardingSky.swift`, the filling star
+  from `StarRules.swift`/`StarProgress.swift`, and `img/glyphs.svg` holds the
+  app's star outline and prayer glyphs. Its `<head>` keeps the script that sends
+  the App Store's old `#terms`/`#privacy` links on. Nothing moves with Reduce Motion.
 - **Policies** were moved from the old one-page sites word for word. When an
   app's policy changes, change it here and in the app (Thaqib also shows its
   terms and policy inside the app, in `LegalDocuments.swift`).
