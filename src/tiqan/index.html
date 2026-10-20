@@ -121,6 +121,9 @@
       transition: transform .18s;
     }
     .nav-cta:hover { transform: translateY(-1px); }
+    /* The Download button keeps its white label: \`.nav-links a\` (grey, weight 500)
+       outranked \`.nav-cta\`, so it looked dimmed until hovered. */
+    .nav-links .nav-cta, .nav-links .nav-cta:hover { color: #fff; font-weight: 600; }
     @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
 
     /* ---------- Shared type ---------- */
