@@ -72,7 +72,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 12px 26px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand img { width: 34px; height: 34px; }
-.brand span { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.01em; }
+.brand span { font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; }
 .nav-links { display: flex; align-items: center; gap: 24px; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.95rem; font-weight: 600; }
 .nav-links a:hover { color: var(--ink); }
@@ -105,7 +105,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; color: var(--ink-soft);
 }
 .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--warm); box-shadow: 0 0 10px var(--warm); }
-.hero h1 { font-size: clamp(2.7rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; font-weight: 800; margin: 20px 0 20px; }
+.hero h1 { font-size: clamp(2.7rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; font-weight: 650; margin: 20px 0 20px; }
 .lede { color: var(--ink-soft); font-size: 1.16rem; max-width: 33em; margin: 0 0 28px; }
 .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .appstore img { height: 54px; width: auto; filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35)); transition: transform .2s; }
@@ -190,9 +190,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Sections ---------- */
 main { position: relative; z-index: 2; }
-.section-eyebrow { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); }
+.section-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); }
 .grad { background: var(--sweep); -webkit-background-clip: text; background-clip: text; color: transparent; }
-h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.06; }
+h2 { font-weight: 650; letter-spacing: -0.015em; line-height: 1.08; }
 
 .stats { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--border); }
 .stat { padding: 26px 12px; text-align: center; border-right: 1px solid var(--border); }
@@ -228,7 +228,7 @@ h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.06; }
 .extra { padding: 26px; border-radius: 24px; border: 1px solid var(--border);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)); }
 .extra svg { width: 30px; height: 30px; color: var(--warm); margin-bottom: 14px; }
-.extra strong { display: block; font-size: 1.12rem; font-weight: 700; margin-bottom: 6px; }
+.extra strong { display: block; font-size: 1.12rem; font-weight: 600; margin-bottom: 6px; }
 .extra p { margin: 0; color: var(--muted); font-size: 0.98rem; }
 
 /* The App Store header's crescent sits above the words: the image is at least
