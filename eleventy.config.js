@@ -5,6 +5,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/**/img/**");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/site.webmanifest");
 
   // Tiqan's page keeps its own hand-made design: every file in src/tiqan is
   // published exactly as written.

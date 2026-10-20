@@ -39,7 +39,7 @@ for (const file of pages) {
   const here = "/" + relative(site, file).split(sep).join("/");
   if (/\{\{|\{%/.test(html.replace(/<script[\s\S]*?<\/script>/g, ""))) problems.push(`${here}: unrendered template code`);
 
-  for (const [, attr, url] of html.matchAll(/\s(href|src)="([^"]*)"/g)) {
+  for (const [, attr, url] of html.matchAll(/\s(href|src|srcset)="([^"]*)"/g)) {
     if (/^(https?:|mailto:|tel:|data:)/.test(url) || url === "") continue;
     const [pathPart, hash] = url.split("#");
     const absolute = pathPart === "" ? here : new URL(pathPart, "https://x" + here).pathname;

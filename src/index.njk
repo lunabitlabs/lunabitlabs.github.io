@@ -4,12 +4,13 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
 ---
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Independent app studio · {{ site.place }}</p>
-    <h1>Small apps, made with care.</h1>
+    {% include "partials/lockup.svg" %}
+    <p class="eyebrow">independent app studio · {{ site.place | lower }}</p>
+    <h1>small apps, made with care.</h1>
     <p class="lead">Lunabit Labs makes calm, private apps for iPhone, iPad and Apple Watch that fit quietly into your day.</p>
     <div class="actions">
-      <a class="button" href="#apps">See the apps</a>
-      <a class="button secondary" href="#contact">Get in touch</a>
+      <a class="button" href="#apps">see the apps</a>
+      <a class="button secondary" href="#contact">get in touch</a>
     </div>
     <ul class="icon-row">
       {%- for app in apps %}
@@ -24,7 +25,7 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
 <section class="section" id="apps">
   <div class="wrap">
     <div class="section-head">
-      <h2>The apps</h2>
+      <h2>the apps</h2>
       <p>Each one does a single job well, and gets out of the way.</p>
     </div>
     <div class="app-grid">
@@ -38,7 +39,7 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2>How we make them</h2>
+      <h2>how we make them</h2>
     </div>
     <div class="principles">
       <div class="principle">
@@ -62,7 +63,7 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
 
 <section class="section contact" id="contact">
   <div class="narrow">
-    <h2>Say hello</h2>
+    <h2>say hello</h2>
     <p>Questions, ideas, or something not working as it should? Write any time.</p>
     <a class="button" href="mailto:{{ site.email }}">{{ site.email }}</a>
   </div>
