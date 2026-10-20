@@ -1,18 +1,18 @@
-<article class="app-card" style="--tint: {{ app.tint }};">
-  <div class="band"><img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="104" height="104"></div>
-  <div class="body">
-    <h3><a href="/{{ app.slug }}/" style="color: inherit;">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h3>
+<li class="app-item">
+  <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="72" height="72">
+  <div class="title">
+    <h3><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h3>
     <p class="subtitle">{{ app.subtitle }}</p>
-    <p class="summary">{{ app.summary }}</p>
+  </div>
+  <p class="summary">{{ app.summary }}</p>
+  <div class="foot">
     <ul class="chips" aria-label="Works on">
-      {%- if app.status != "live" %}<li class="chip soon">Coming soon</li>{% endif %}
       {%- for platform in app.platforms %}<li class="chip">{{ platform }}</li>{% endfor %}
     </ul>
-    <div class="links">
-      <a class="more" href="/{{ app.slug }}/">More about {{ app.name }} →</a>
-      {%- if app.status == "live" %}
-      <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="Download {{ app.name }} on the App Store" width="120" height="40" style="height: 40px;"></a>
-      {%- endif %}
-    </div>
+    {%- if app.status == "live" %}
+    <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="Download {{ app.name }} on the App Store" width="120" height="40"></a>
+    {%- else %}
+    <span class="chip soon">Coming soon</span>
+    {%- endif %}
   </div>
-</article>
+</li>

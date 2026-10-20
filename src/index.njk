@@ -12,13 +12,6 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
       <a class="button" href="#apps">see the apps</a>
       <a class="button secondary" href="#contact">get in touch</a>
     </div>
-    <ul class="icon-row">
-      {%- for app in apps %}
-      <li{% if app.status != "live" %} class="soon"{% endif %}>
-        <a href="/{{ app.slug }}/"><img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="108" height="108"><span>{{ app.name }}</span>{% if app.status != "live" %}<small>Coming soon</small>{% endif %}</a>
-      </li>
-      {%- endfor %}
-    </ul>
   </div>
 </section>
 
@@ -28,11 +21,11 @@ description: Lunabit Labs is an independent studio in Bahrain making calm, priva
       <h2>the apps</h2>
       <p>Each one does a single job well, and gets out of the way.</p>
     </div>
-    <div class="app-grid">
+    <ul class="app-list">
       {%- for app in apps %}
       {% include "partials/app-card.njk" %}
       {%- endfor %}
-    </div>
+    </ul>
   </div>
 </section>
 

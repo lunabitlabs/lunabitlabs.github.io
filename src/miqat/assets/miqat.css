@@ -105,7 +105,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; color: var(--ink-soft);
 }
 .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--warm); box-shadow: 0 0 10px var(--warm); }
-.hero h1 { font-size: clamp(2.7rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; font-weight: 650; margin: 20px 0 20px; }
+.hero h1 { font-size: clamp(2.7rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; font-weight: 560; margin: 20px 0 20px; }
 .lede { color: var(--ink-soft); font-size: 1.16rem; max-width: 33em; margin: 0 0 28px; }
 .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .appstore img { height: 54px; width: auto; filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35)); transition: transform .2s; }
@@ -192,7 +192,7 @@ img { max-width: 100%; height: auto; display: block; }
 main { position: relative; z-index: 2; }
 .section-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); }
 .grad { background: var(--sweep); -webkit-background-clip: text; background-clip: text; color: transparent; }
-h2 { font-weight: 650; letter-spacing: -0.015em; line-height: 1.08; }
+h2 { font-weight: 600; letter-spacing: -0.015em; line-height: 1.08; }
 
 .stats { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--border); }
 .stat { padding: 26px 12px; text-align: center; border-right: 1px solid var(--border); }

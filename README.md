@@ -21,7 +21,7 @@ published and the live site stays as it was.
 | Address | File |
 |---|---|
 | `/` | `src/index.njk` |
-| `/apps/` | `src/apps/index.njk` |
+| `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there, from `src/_includes/partials/app-card.njk` |
 | `/<app>/` | `src/<app>/index.njk` (Tiqan: `src/tiqan/index.html`) |
 | `/<app>/privacy/` | `src/<app>/privacy.njk` (Tiqan: `src/tiqan/privacy/index.html`) |
 | `/thaqib/terms/` | `src/thaqib/terms.njk` |
@@ -29,7 +29,7 @@ published and the live site stays as it was.
 | `/blog/` | `src/blog/index.njk`, posts in `src/blog/posts/` |
 
 - **Every app's name, subtitle, platforms, App Store ID and colours** are in
-  `src/_data/apps.json`. The home page, the apps page and the footer read it.
+  `src/_data/apps.json`. The home page's list and the footer read it.
   Add an app there, then give it a folder like `src/miqat/`.
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,

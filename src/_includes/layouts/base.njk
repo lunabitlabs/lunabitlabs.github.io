@@ -41,7 +41,7 @@
     <div class="wrap">
       <a class="brand" href="/">{% include "partials/lockup-img.njk" %}</a>
       <nav class="site-nav" aria-label="Main">
-        <a href="/apps/"{% if page.url and page.url.startsWith('/apps/') %} aria-current="page"{% endif %}>apps</a>
+        <a href="/#apps">apps</a>
         {%- if collections.posts and collections.posts.length %}
         <a href="/blog/"{% if page.url and page.url.startsWith('/blog/') %} aria-current="page"{% endif %}>blog</a>
         {%- endif %}
@@ -72,7 +72,7 @@
         <div>
           <h2>studio</h2>
           <ul>
-            <li><a href="/apps/">All apps</a></li>
+            <li><a href="/#apps">All apps</a></li>
             {%- if collections.posts and collections.posts.length %}
             <li><a href="/blog/">Blog</a></li>
             {%- endif %}

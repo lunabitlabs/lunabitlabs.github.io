@@ -1,39 +1,17 @@
 ---
-layout: layouts/base.njk
-title: Apps
-description: Every app from Lunabit Labs, with links to each one's page, the App Store, and its privacy policy.
+permalink: /apps/
+eleventyExcludeFromCollections: true
+# The apps are listed once, on the home page. This address forwards there.
 ---
-<section class="section" style="padding-top: 56px;">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">lunabit.labs</p>
-      <h2 style="font-size: clamp(32px, 6vw, 48px); line-height: 1.1;">apps</h2>
-      <p>Everything we make, with its page, its App Store listing and its privacy policy.</p>
-    </div>
-    <div class="app-rows">
-      {%- for app in apps %}
-      <article class="app-row" style="--tint: {{ app.tint }};">
-        <a href="/{{ app.slug }}/"><img src="/assets/apps/{{ app.slug }}-384.png" alt="" width="132" height="132"></a>
-        <div>
-          <h2><a href="/{{ app.slug }}/" style="color: inherit;">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h2>
-          <p class="subtitle">{{ app.subtitle }}</p>
-          <p style="margin: 0;">{{ app.summary }}</p>
-          <p class="meta">{{ app.platforms | join(" · ") }} · {{ app.languages }}{% if app.status != "live" %} · <strong>Coming soon</strong>{% endif %}</p>
-          <div class="links">
-            <a href="/{{ app.slug }}/">About {{ app.name }}</a>
-            {%- if app.status == "live" %}
-            <a href="https://apps.apple.com/app/id{{ app.appStoreId }}">App Store</a>
-            {%- endif %}
-            {%- if app.privacy %}
-            <a href="{{ app.privacy }}">Privacy Policy</a>
-            {%- endif %}
-            {%- if app.terms %}
-            <a href="{{ app.terms }}">Terms of Service</a>
-            {%- endif %}
-          </div>
-        </div>
-      </article>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Apps · Lunabit Labs</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ site.url }}/#apps">
+  <meta http-equiv="refresh" content="0; url=/#apps">
+  <script>location.replace("/#apps");</script>
+</head>
+<body><p>The apps are on the <a href="/#apps">home page</a>.</p></body>
+</html>
