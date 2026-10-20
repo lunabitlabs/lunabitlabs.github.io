@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+---
+{%- set app = apps | appBySlug(appSlug) %}
+<div class="app-page" style="--app-accent: {{ app.accent }}; --app-accent-dark: {{ app.accentDark }};">
+  <article class="doc narrow">
+    <header class="doc-head">
+      <a href="/{{ app.slug }}/"><img src="/assets/apps/{{ app.slug }}-256.png" alt="{{ app.name }}" width="64" height="64"></a>
+      <div>
+        <p class="app-name"><a href="/{{ app.slug }}/">{{ app.name }}</a></p>
+        <h1>{{ docTitle }}</h1>
+      </div>
+    </header>
+    {%- if docNav %}
+    <nav class="doc-nav" aria-label="On this page">
+      {%- for item in docNav %}
+      <a href="{{ item.href }}"{% if item.lang %} lang="{{ item.lang }}"{% endif %}>{{ item.label }}</a>
+      {%- endfor %}
+    </nav>
+    {%- endif %}
+    <div class="help-box">
+      <p>Need help with {{ app.name }}? Write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+      {%- if app.arabicName and arabicHelp %}
+      <p lang="ar" dir="rtl">للمساعدة في {{ app.arabicName }}، راسلنا على <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+      {%- endif %}
+    </div>
+    <div class="prose">
+{{ content | safe }}
+    </div>
+  </article>
+</div>

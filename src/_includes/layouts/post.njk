@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+---
+<article class="doc narrow">
+  <p class="eyebrow"><a href="/blog/">Blog</a></p>
+  <h1 style="font-size: clamp(32px, 5vw, 46px); letter-spacing: -0.03em;">{{ title }}</h1>
+  <p class="post-meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>
+  <div class="prose">
+{{ content | safe }}
+  </div>
+</article>

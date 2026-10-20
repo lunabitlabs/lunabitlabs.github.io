@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+smartBanner: true
+---
+{%- set app = apps | appBySlug(appSlug) %}
+<div class="app-page" style="--tint: {{ app.tint }}; --app-accent: {{ app.accent }}; --app-accent-dark: {{ app.accentDark }};">
+  <section class="app-hero">
+    <div class="wrap">
+      <div>
+        <img class="icon" src="/assets/apps/{{ app.slug }}-384.png" alt="" width="132" height="132">
+        <h1>{{ app.name }}{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h1>
+        <p class="subtitle">{{ app.subtitle }}</p>
+        <p class="summary">{{ app.summary }}</p>
+        <div class="actions">
+          {%- if app.status == "live" %}
+          <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="Download {{ app.name }} on the App Store" width="138" height="46"></a>
+          {%- else %}
+          <span class="chip soon">Coming soon to the App Store</span>
+          {%- endif %}
+          <ul class="chips" aria-label="Works on">{% for platform in app.platforms %}<li class="chip">{{ platform }}</li>{% endfor %}</ul>
+        </div>
+        <p class="quick"><a href="{{ app.privacy }}">Privacy Policy</a>{% if app.terms %}<a href="{{ app.terms }}">Terms of Service</a>{% endif %}<a href="#support">Support</a></p>
+      </div>
+      {%- if heroShot %}
+      <img class="hero-shot" src="{{ heroShot }}" alt="{{ heroShotAlt }}" width="260">
+      {%- endif %}
+    </div>
+  </section>
+{{ content | safe }}
+</div>

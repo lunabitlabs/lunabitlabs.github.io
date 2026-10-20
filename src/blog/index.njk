@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: Notes from Lunabit Labs, an independent app studio in Bahrain.
+---
+<section class="section" style="padding-top: 56px;">
+  <div class="narrow">
+    <div class="section-head">
+      <p class="eyebrow">Lunabit Labs</p>
+      <h2 style="font-size: clamp(36px, 5vw, 52px);">Blog</h2>
+      <p>Notes on the apps and how they're made. <a href="/blog/feed.xml">Subscribe with a feed reader</a>.</p>
+    </div>
+    {%- if collections.posts.length %}
+    <ul class="post-list">
+      {%- for post in collections.posts %}
+      <li><a href="{{ post.url }}"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time><h2>{{ post.data.title }}</h2>{% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p>Nothing here yet.</p>
+    {%- endif %}
+  </div>
+</section>

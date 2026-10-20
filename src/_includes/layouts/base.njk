@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="{{ lang or 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- set pageTitle = (title + " · " + site.name) if title else site.name %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ ogTitle or pageTitle }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or '/assets/img/og.jpg' }}">
+  <meta name="twitter:card" content="{{ 'summary' if ogImage else 'summary_large_image' }}">
+  <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0D18" media="(prefers-color-scheme: dark)">
+  {%- set pageApp = apps | appBySlug(appSlug) if appSlug else null %}
+  {%- if smartBanner and pageApp and pageApp.appStoreId %}
+  <meta name="apple-itunes-app" content="app-id={{ pageApp.appStoreId }}">
+  {%- endif %}
+  {%- if noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <link rel="alternate" type="application/atom+xml" href="/blog/feed.xml" title="Lunabit Labs Blog">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {%- if headScript %}
+  <script>{{ headScript | safe }}</script>
+  {%- endif %}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">Lunabit Labs</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/apps/"{% if page.url and page.url.startsWith('/apps/') %} aria-current="page"{% endif %}>Apps</a>
+        {%- if collections.posts and collections.posts.length %}
+        <a href="/blog/"{% if page.url and page.url.startsWith('/blog/') %} aria-current="page"{% endif %}>Blog</a>
+        {%- endif %}
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div class="about">
+          <a class="brand" href="/">Lunabit Labs</a>
+          <p style="margin-top: 12px; max-width: 26em;">An independent app studio in {{ site.place }}, making careful, private apps for iPhone, iPad and Apple Watch.</p>
+        </div>
+        <div>
+          <h2>Apps</h2>
+          <ul>
+            {%- for app in apps %}
+            <li><a href="/{{ app.slug }}/">{{ app.name }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        <div>
+          <h2>Studio</h2>
+          <ul>
+            <li><a href="/apps/">All apps</a></li>
+            {%- if collections.posts and collections.posts.length %}
+            <li><a href="/blog/">Blog</a></li>
+            {%- endif %}
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="legal">© {{ build.year }} Lunabit Labs · Made in {{ site.place }}. Apple, the Apple logo, iPhone, iPad and Apple Watch are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>

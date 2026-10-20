@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Page not found
+permalink: /404.html
+noindex: true
+eleventyExcludeFromCollections: true
+# Old addresses that live on in shipped apps and App Store listings. GitHub
+# Pages paths are case-sensitive, and the old one-page sites were /Miqat/ and
+# /Miqdar/ (support and privacy in one), so send those to the privacy policies.
+# Anything else with capitals gets one try in lower case.
+headScript: >-
+  (function () {
+  var path = location.pathname, first = path.split("/")[1];
+  var old = { "Miqat": "/miqat/privacy/", "Miqdar": "/miqdar/privacy/" }[first];
+  if (old) { location.replace(old + location.hash); return; }
+  var lower = path.toLowerCase();
+  if (lower !== path) location.replace(lower + location.search + location.hash);
+  })();
+---
+<section class="section contact">
+  <div class="narrow">
+    <p class="eyebrow">404</p>
+    <h2>This page isn't here</h2>
+    <p>It may have moved when our apps came together on one site.</p>
+    <a class="button" href="/">Go to the home page</a>
+    <p style="margin-top: 22px; font-size: 16px;"><a href="/apps/">All apps</a> · <a href="/privacy/">Privacy policies</a></p>
+  </div>
+</section>

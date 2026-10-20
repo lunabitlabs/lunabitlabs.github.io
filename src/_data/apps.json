@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "miqat",
+    "name": "Miqat",
+    "arabicName": "ميقات",
+    "storeName": "Miqat: Prayer Times",
+    "subtitle": "Simple prayer times and Qibla",
+    "summary": "Accurate prayer times for where you are, with the Qibla, a monthly view and the Hijri calendar, in a calm design that keeps the day's prayers clear.",
+    "platforms": [
+      "iPhone",
+      "iPad",
+      "Apple Watch"
+    ],
+    "languages": "English and Arabic",
+    "appStoreId": "6759224322",
+    "status": "live",
+    "accent": "#3F51A0",
+    "accentDark": "#AAB7F2",
+    "tint": "linear-gradient(160deg, #3D4F96 0%, #8C7DB8 55%, #F2B38C 100%)",
+    "privacy": "/miqat/privacy/"
+  },
+  {
+    "slug": "tiqan",
+    "name": "Tiqan",
+    "storeName": "Tiqan: Calisthenics Workout",
+    "subtitle": "Adaptive bodyweight plans",
+    "summary": "An adaptive calisthenics coach. Pick a goal (strength, a skill or mobility) and the plan levels up, holds or eases off after every session.",
+    "platforms": [
+      "iPhone",
+      "iPad",
+      "Apple Watch",
+      "Mac"
+    ],
+    "languages": "English",
+    "appStoreId": "6761499537",
+    "status": "live",
+    "accent": "#3D63F0",
+    "accentDark": "#8FA6FF",
+    "tint": "linear-gradient(160deg, #0A0F1C 0%, #2B3F9E 55%, #FF99EE 100%)",
+    "privacy": "/tiqan/privacy/"
+  },
+  {
+    "slug": "thaqib",
+    "name": "Thaqib",
+    "arabicName": "ثاقب",
+    "storeName": "Thaqib: Family Good Deeds",
+    "subtitle": "Prayers, good deeds, rewards",
+    "summary": "Kids check in their prayers and good deeds, a grown-up says yes, and stars turn into rewards your family chooses.",
+    "platforms": [
+      "iPhone",
+      "iPad"
+    ],
+    "languages": "English and Arabic",
+    "appStoreId": "6762806542",
+    "status": "live",
+    "accent": "#5B49D6",
+    "accentDark": "#B7ACFF",
+    "tint": "linear-gradient(160deg, #4A3CC4 0%, #7A5CE6 60%, #FFC94D 100%)",
+    "privacy": "/thaqib/privacy/",
+    "terms": "/thaqib/terms/"
+  },
+  {
+    "slug": "miqdar",
+    "name": "Miqdar",
+    "arabicName": "مقدار",
+    "storeName": "Miqdar",
+    "subtitle": "A private food and nutrition coach",
+    "summary": "A food and nutrition coach for iPhone. No account to create, no server of ours, and your food log stays on your device and in your own iCloud.",
+    "platforms": [
+      "iPhone"
+    ],
+    "languages": "English",
+    "status": "soon",
+    "accent": "#B4233C",
+    "accentDark": "#F28A9B",
+    "tint": "linear-gradient(160deg, #CFE3C8 0%, #E9B3B5 60%, #B4233C 100%)",
+    "privacy": "/miqdar/privacy/"
+  }
+]

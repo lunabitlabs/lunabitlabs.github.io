@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Privacy
+description: The privacy policy of each Lunabit Labs app.
+permalink: /privacy/
+---
+<section class="section" style="padding-top: 56px;">
+  <div class="narrow">
+    <div class="section-head">
+      <p class="eyebrow">Lunabit Labs</p>
+      <h2 style="font-size: clamp(36px, 5vw, 52px);">Privacy</h2>
+      <p>Our apps have no ads and no third-party trackers, and we don't sell anything about you. Each app's own policy says exactly what it keeps and where.</p>
+    </div>
+    <ul class="post-list">
+      {%- for app in apps %}
+      <li><a href="{{ app.privacy }}"><h2>{{ app.name }} Privacy Policy</h2></a></li>
+      {%- if app.terms %}
+      <li><a href="{{ app.terms }}"><h2>{{ app.name }} Terms of Service</h2></a></li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

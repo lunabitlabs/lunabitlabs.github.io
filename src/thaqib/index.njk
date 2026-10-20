@@ -1,0 +1,100 @@
+---
+layout: layouts/app.njk
+appSlug: thaqib
+title: "Thaqib: Family Good Deeds"
+ogTitle: "Thaqib: Family Good Deeds"
+ogImage: /assets/apps/thaqib-384.png
+description: Thaqib turns good deeds into stars. Kids check in their prayers and good deeds, a grown-up says yes, and stars become rewards your family chooses. For iPhone and iPad, in English and Arabic.
+heroShot: /thaqib/img/01-stars.jpg
+heroShotAlt: "Thaqib: a kid's page, with a star filling up as good deeds are approved."
+# This page used to hold the terms and the privacy policy, and the App Store
+# description still links to its sections (#terms, #privacy, and the Arabic
+# #terms-ar, #privacy-ar). Send those links on to the pages that hold them now.
+headScript: >-
+  (function () {
+  function go() {
+  var to = { "#terms": "/thaqib/terms/#terms", "#terms-ar": "/thaqib/terms/#terms-ar",
+  "#privacy": "/thaqib/privacy/#privacy", "#privacy-ar": "/thaqib/privacy/#privacy-ar" }[location.hash];
+  if (to) location.replace(to);
+  }
+  go();
+  window.addEventListener("hashchange", go);
+  })();
+---
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Good deeds become stars</h2>
+      <p>Kids check in the good they do: their five daily prayers, reading Quran, kind words, helping at home, homework. A grown-up approves, the points add up, and every 10 points make a star. Stars become rewards your family chooses, from extra screen time to a day out.</p>
+    </div>
+    <div class="shots" role="list" aria-label="Screenshots">
+      <img role="listitem" src="/thaqib/img/01-stars.jpg" alt="A kid's page with a star filling up" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/02-approve.jpg" alt="A grown-up approving check-ins" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/03-rewards.jpg" alt="Rewards to spend stars on" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/04-sky.jpg" alt="A kid's own sky of earned stars" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/05-deeds.jpg" alt="The library of ready-made good deeds, by category" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/06-choose.jpg" alt="Choosing what each kid sees" width="230" loading="lazy">
+      <img role="listitem" src="/thaqib/img/07-private.jpg" alt="The welcome screen: no ads, no tracking, only your family's iCloud" width="230" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="features">
+      <div class="feature">
+        <h3>Kids mode</h3>
+        <ul>
+          <li>Their own page: the five prayers, good deeds by category, and a star that fills as points come in</li>
+          <li>Tap what you did to check it in; it counts once a grown-up says yes</li>
+          <li>Spend stars on rewards, or save up for a goal</li>
+          <li>Their own sky, with every star they have earned and the deeds that made it</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3>Parent mode</h3>
+        <ul>
+          <li>Today: everything waiting for you, approved one by one or all at once, with a few seconds to undo</li>
+          <li>Choose what each kid sees: whole categories, or deed by deed</li>
+          <li>44 good deeds and 14 rewards ready to go, or add your own</li>
+          <li>Give points or a reward yourself, or take points away for an oops</li>
+          <li>Locked with a family PIN, and Face ID or Touch ID on your own device</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h3>The whole family, in sync</h3>
+        <p>Up to 4 grown-ups and 6 kids. Give a kid their own iPhone or iPad that opens straight to their page, or share one family iPad. Everything syncs through iCloud.</p>
+        <p>Made for iPhone and iPad, in English and Arabic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="wrap split">
+    <div class="note-card">
+      <h2>Private by design</h2>
+      <p>No ads, no analytics, no tracking, and no new accounts. Your family's information stays on your devices and in your own iCloud, shared only with the people you invite. We can't see it.</p>
+      <p style="margin: 0;"><a href="/thaqib/privacy/">Read the privacy policy →</a></p>
+    </div>
+    <div class="note-card">
+      <h2>Thaqib Family</h2>
+      <p>Thaqib is free to download. The Thaqib Family subscription unlocks everything for the whole family, on all your devices. New subscribers start with one month free; after that it is a yearly subscription at the price shown in the app.</p>
+      <p>Families who bought Thaqib before it became a subscription keep everything, free, for good.</p>
+      <p style="margin: 0;"><a href="/thaqib/terms/">Read the terms of service →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="support" style="padding-top: 0;">
+  <div class="narrow" style="max-width: var(--wrap);">
+    <div class="note-card faq">
+      <h2>Support</h2>
+      <p>For support, feedback or questions, write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+      <h3>Managing the subscription</h3>
+      <p>To manage or cancel the Thaqib Family subscription, open the Settings app, tap your name, then Subscriptions. In Thaqib, it's in Settings › Subscription › Manage in the App Store.</p>
+      <h3>Terms and privacy</h3>
+      <p><a href="/thaqib/terms/">Terms of Service</a> · <a href="/thaqib/terms/#terms-ar" lang="ar">شروط الخدمة</a> · <a href="/thaqib/privacy/">Privacy Policy</a> · <a href="/thaqib/privacy/#privacy-ar" lang="ar">سياسة الخصوصية</a></p>
+    </div>
+  </div>
+</section>

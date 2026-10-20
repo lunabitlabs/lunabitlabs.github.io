@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+description: Lunabit Labs is an independent studio in Bahrain making careful, private apps for iPhone, iPad and Apple Watch, for prayer, training and family.
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Independent app studio · {{ site.place }}</p>
+    <h1>Small apps, made with care.</h1>
+    <p class="lead">Lunabit Labs makes calm, private apps for iPhone, iPad and Apple Watch: for prayer, for training, and for families.</p>
+    <div class="actions">
+      <a class="button" href="#apps">See the apps</a>
+      <a class="button secondary" href="#contact">Get in touch</a>
+    </div>
+    <ul class="icon-row">
+      {%- for app in apps %}
+      <li{% if app.status != "live" %} class="soon"{% endif %}>
+        <a href="/{{ app.slug }}/"><img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="108" height="108"><span>{{ app.name }}</span>{% if app.status != "live" %}<small>Coming soon</small>{% endif %}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The apps</h2>
+      <p>Each one does a single job well, and gets out of the way.</p>
+    </div>
+    <div class="app-grid">
+      {%- for app in apps %}
+      {% include "partials/app-card.njk" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How we make them</h2>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Private by design</h3>
+        <p>No ads, no third-party trackers, and nothing sold. Each app's privacy policy says plainly what it keeps and where.</p>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <h3>Made for Apple devices</h3>
+        <p>Built with Apple's own frameworks for iPhone, iPad and Apple Watch, so each app feels at home on your devices.</p>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <h3>English and Arabic</h3>
+        <p>Made in {{ site.place }}. Miqat and Thaqib are fully at home in both languages, right to left included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="narrow">
+    <h2>Say hello</h2>
+    <p>Questions, ideas, or something not working as it should? Write any time.</p>
+    <a class="button" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</section>

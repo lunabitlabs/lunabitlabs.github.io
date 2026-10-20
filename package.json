@@ -1,0 +1,18 @@
+{
+  "name": "lunabitlabs.com",
+  "version": "1.0.0",
+  "description": "Lunabit Labs website: lunabitlabs.com",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --port 8080",
+    "check": "node scripts/check.mjs"
+  },
+  "author": "Lunabit Labs",
+  "license": "UNLICENSED",
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@11ty/eleventy-plugin-rss": "3.1.0"
+  },
+  "private": true
+}
