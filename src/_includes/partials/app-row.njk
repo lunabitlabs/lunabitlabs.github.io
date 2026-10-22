@@ -1,0 +1,9 @@
+{#- An app still in the lab, on the home page: one compact row; the whole row opens the app's page. -#}
+<li class="lab-item">
+  <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="56" height="56">
+  <div class="title">
+    <h4><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h4>
+    <p class="subtitle">{{ app.subtitle }}</p>
+  </div>
+  <span class="chip soon">in development</span>
+</li>

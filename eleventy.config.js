@@ -45,6 +45,8 @@ export default function (eleventyConfig) {
   );
   eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
   eleventyConfig.addFilter("appBySlug", (apps, slug) => apps.find((app) => app.slug === slug));
+  // The home page lists "live" apps (on the App Store) apart from "soon" ones (in the lab).
+  eleventyConfig.addFilter("byStatus", (apps, status) => apps.filter((app) => app.status === status));
 
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },

@@ -1,7 +1,7 @@
 <li class="app-item">
   <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="72" height="72">
   <div class="title">
-    <h3><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h3>
+    <h4><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h4>
     <p class="subtitle">{{ app.subtitle }}</p>
   </div>
   <p class="summary">{{ app.summary }}</p>
@@ -12,7 +12,7 @@
     {%- if app.status == "live" %}
     <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="Download {{ app.name }} on the App Store" width="120" height="40"></a>
     {%- else %}
-    <span class="chip soon">Coming soon</span>
+    <span class="chip soon">in development</span>
     {%- endif %}
   </div>
 </li>

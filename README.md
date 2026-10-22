@@ -21,7 +21,7 @@ published and the live site stays as it was.
 | Address | File |
 |---|---|
 | `/` | `src/index.njk` |
-| `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there, from `src/_includes/partials/app-card.njk` |
+| `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there: `"status": "live"` apps as cards under "on the App Store" (`src/_includes/partials/app-card.njk`), `"soon"` apps as rows under "in the lab" (`app-row.njk`) |
 | `/<app>/` | `src/<app>/index.njk` |
 | `/<app>/privacy/` | `src/<app>/privacy.njk` |
 | `/thaqib/terms/` | `src/thaqib/terms.njk` |
