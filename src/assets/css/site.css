@@ -9,6 +9,15 @@
   src: url("/assets/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "JetBrains Mono"; font-weight: 700; font-style: normal; font-display: swap;
   src: url("/assets/fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2"); }
+/* The Arabic pages' voice: Noto Kufi Arabic, geometric like the mono. Arabic letters and spaces only,
+   so Latin (iPhone, App Store, the email) stays in JetBrains Mono beside it, while words keep Arabic
+   spacing rather than the mono's wide one. Only downloaded on pages that use it. */
+@font-face { font-family: "Noto Kufi Arabic"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/noto-kufi-arabic-arabic-400-normal.woff2") format("woff2");
+  unicode-range: U+0020, U+00A0, U+0600-06FF, U+0750-077F, U+0870-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200E; }
+@font-face { font-family: "Noto Kufi Arabic"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("/assets/fonts/noto-kufi-arabic-arabic-700-normal.woff2") format("woff2");
+  unicode-range: U+0020, U+00A0, U+0600-06FF, U+0750-077F, U+0870-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200E; }
 
 :root {
   --navy: #0F1526;
@@ -89,10 +98,25 @@ p { margin: 0 0 1em; }
 [lang="ar"], [dir="rtl"], .rtl { font-family: var(--font-arabic); }
 .nowrap { white-space: nowrap; }
 
+/* Arabic pages (<html lang="ar" dir="rtl">): the mono voice becomes Noto Kufi Arabic, reading text the
+   system's Arabic (SF Arabic on Apple devices). Arabic letters must join, so no letter-spacing, and
+   they need more line height than Latin. */
+html[lang="ar"] {
+  --font: "Noto Kufi Arabic", "JetBrains Mono", var(--font-arabic);
+  --font-display: var(--font);
+  --font-text: var(--font-arabic);
+}
+html[lang="ar"] body { line-height: 1.8; }
+html[lang="ar"] :is(h1, h2, h3, h4, .group-label) { letter-spacing: 0; }
+html[lang="ar"] :is(h1, h2) { line-height: 1.45; }
+html[lang="ar"] :is(.eyebrow, .app-item .subtitle, .lab-item .subtitle, .group-label) { font-size: 14px; }
+html[lang="ar"] .site-footer h2 { font-size: 14px; }
+html[lang="ar"] .chip.soon { font-size: 13.5px; }
+
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 22px; }
 .narrow { max-width: var(--text); margin: 0 auto; padding: 0 22px; }
-.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 14px; border-radius: 10px; z-index: 20; }
-.skip:focus { left: 12px; }
+.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--surface); padding: 8px 14px; border-radius: 10px; z-index: 20; }
+.skip:focus { inset-inline-start: 12px; }
 
 /* Header */
 .site-header {
@@ -108,7 +132,12 @@ p { margin: 0 0 1em; }
 .site-nav { display: flex; gap: 22px; font-size: 15px; }
 .site-nav a { color: var(--body); text-decoration: none; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--amber); text-decoration-thickness: 2px; }
+/* The other language, set apart from the menu by a thin rule. On phones the header keeps the whole
+   wordmark and the language, and drops "apps" and "contact": the home page's buttons and the footer have them. */
+.brand { flex: none; }
+.site-nav .lang-switch { padding-inline-start: 16px; border-inline-start: 1px solid var(--line); }
 @media (max-width: 420px) { .brand img { height: 24px; } .site-nav { gap: 16px; } }
+@media (max-width: 500px) { .site-nav .nav-anchor { display: none; } .site-nav .lang-switch { padding-inline-start: 0; border-inline-start: 0; } }
 
 /* Buttons and chips */
 .button {
@@ -131,15 +160,16 @@ p { margin: 0 0 1em; }
 .hero { padding: 72px 0 0; text-align: center; position: relative; overflow: hidden; }
 .hero h1 { font-size: clamp(30px, 6vw, 48px); line-height: 1.1; max-width: 30ch; margin: 0 auto; text-wrap: balance; }
 /* The wordmark's amber cursor, after the headline: it blinks twice as the page opens, then stays. */
-.hero h1 .cursor { display: inline-block; width: 0.55em; height: 0.09em; margin-left: 0.1em; background: var(--amber); vertical-align: baseline; animation: cursor-blink 1s step-end 2; }
+.hero h1 .cursor { display: inline-block; width: 0.55em; height: 0.09em; margin-inline-start: 0.1em; background: var(--amber); vertical-align: baseline; animation: cursor-blink 1s step-end 2; }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .hero h1 .cursor { animation: none; } }
 .hero .lead { font-size: clamp(17px, 2vw, 19px); color: var(--muted); max-width: 46ch; margin: 20px auto 0; }
 .hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
 
-/* Three shipped apps as phones, fanned and fading into the page. --pw is one phone's width. */
+/* Three shipped apps as phones, fanned and fading into the page. --pw is one phone's width.
+   Always laid out left to right, so the fan looks the same on the Arabic page. */
 .hero-shots {
-  --pw: clamp(112px, 29vw, 228px);
+  --pw: clamp(112px, 29vw, 228px); direction: ltr;
   display: flex; justify-content: center; align-items: flex-start;
   height: calc(var(--pw) * 1.78); margin: 52px auto 0; padding-top: calc(var(--pw) * 0.14);
   overflow: hidden;
@@ -189,6 +219,7 @@ p { margin: 0 0 1em; }
 .app-item h4 .ar { font-size: 18px; font-weight: 400; color: var(--muted); }
 .app-item .subtitle { margin: 3px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; text-wrap: balance; }
 .app-item .summary { grid-column: 1 / -1; margin: 12px 0 0; }
+.app-item .lang-note { grid-column: 1 / -1; margin: 6px 0 0; font-size: 14px; color: var(--muted); }
 .app-item .foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .app-item .badge-link { position: relative; z-index: 1; }
 .app-item .badge-link img { height: 40px; }

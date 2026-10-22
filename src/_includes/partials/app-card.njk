@@ -1,18 +1,29 @@
+{#- In Arabic: the Arabic name alone (or the Latin one if the app has none), and the Arabic copy from apps.json's "ar". #}
+{%- set inArabic = lang == "ar" %}
+{%- set copy = app.ar if inArabic and app.ar else app %}
+{%- set displayName = (app.arabicName or app.name) if inArabic else app.name %}
 <li class="app-item">
   <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="72" height="72">
   <div class="title">
+    {%- if inArabic %}
+    <h4><a href="/{{ app.slug }}/">{{ displayName }}</a></h4>
+    {%- else %}
     <h4><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h4>
-    <p class="subtitle">{{ app.subtitle }}</p>
+    {%- endif %}
+    <p class="subtitle">{{ copy.subtitle }}</p>
   </div>
-  <p class="summary">{{ app.summary }}</p>
+  <p class="summary">{{ copy.summary }}</p>
+  {%- if inArabic and app.languages == "English" %}
+  <p class="lang-note">{{ t.apps.englishOnly }}</p>
+  {%- endif %}
   <div class="foot">
-    <ul class="chips" aria-label="Works on">
+    <ul class="chips" aria-label="{{ t.apps.worksOn }}">
       {%- for platform in app.platforms %}<li class="chip">{{ platform }}</li>{% endfor %}
     </ul>
     {%- if app.status == "live" %}
-    <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="Download {{ app.name }} on the App Store" width="120" height="40"></a>
+    <a class="badge-link" href="https://apps.apple.com/app/id{{ app.appStoreId }}"><img src="/assets/img/app-store-badge.svg" alt="{{ t.apps.download | replace('{app}', displayName) }}" width="120" height="40"></a>
     {%- else %}
-    <span class="chip soon">in development</span>
+    <span class="chip soon">{{ t.apps.soon }}</span>
     {%- endif %}
   </div>
 </li>
