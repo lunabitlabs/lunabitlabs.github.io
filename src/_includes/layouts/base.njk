@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="{{ lang or 'en' }}">
+{#- The words around the page, in its language (src/_data/i18n.js). #}
+{%- set t = i18n[lang] or i18n.en %}
+<html lang="{{ lang or 'en' }}" dir="{{ t.dir }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +9,19 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {#- A page with versions in other languages lists them all, so search engines show the right one. #}
+  {%- if translations %}
+  {%- for code, url in translations %}
+  <link rel="alternate" hreflang="{{ code }}" href="{{ site.url }}{{ url }}">
+  {%- endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ translations.en }}">
+  {%- endif %}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ ogTitle or pageTitle }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="{{ t.ogLocale }}">
   <meta property="og:image" content="{{ site.url }}{{ ogImage or '/assets/brand/og-image.png' }}">
   <meta name="twitter:card" content="{{ 'summary' if ogImage else 'summary_large_image' }}">
   <meta name="theme-color" content="#F3EEDF" media="(prefers-color-scheme: light)">
@@ -29,6 +39,9 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/jetbrains-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/jetbrains-mono-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  {%- if lang == "ar" %}
+  <link rel="preload" href="/assets/fonts/noto-kufi-arabic-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  {%- endif %}
   <link rel="alternate" type="application/atom+xml" href="/blog/feed.xml" title="Lunabit Labs Blog">
   <link rel="stylesheet" href="/assets/css/site.css?v={{ build.version }}">
   {%- if headScript %}
@@ -36,16 +49,18 @@
   {%- endif %}
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">{{ t.skip }}</a>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="/">{% include "partials/lockup-img.njk" %}</a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="/#apps">apps</a>
+      <a class="brand" href="{{ t.home }}">{% include "partials/lockup-img.njk" %}</a>
+      <nav class="site-nav" aria-label="{{ t.nav.label }}">
+        <a class="nav-anchor" href="{{ t.home }}#apps">{{ t.nav.apps }}</a>
         {%- if collections.posts and collections.posts.length %}
-        <a href="/blog/"{% if page.url and page.url.startsWith('/blog/') %} aria-current="page"{% endif %}>blog</a>
+        <a href="/blog/"{% if page.url and page.url.startsWith('/blog/') %} aria-current="page"{% endif %}>{{ t.nav.blog }}</a>
         {%- endif %}
-        <a href="/#contact">contact</a>
+        <a class="nav-anchor" href="{{ t.home }}#contact">{{ t.nav.contact }}</a>
+        {#- The other language: this page's own version in it if there is one, else that language's home. #}
+        <a class="lang-switch" href="{{ translations[t.other.lang] if translations and translations[t.other.lang] else t.other.href }}" lang="{{ t.other.lang }}" hreflang="{{ t.other.lang }}">{{ t.other.label }}</a>
       </nav>
     </div>
   </header>
@@ -58,30 +73,30 @@
     <div class="wrap">
       <div class="cols">
         <div class="about">
-          <a class="brand" href="/">{% include "partials/lockup-img.njk" %}</a>
-          <p style="margin-top: 12px; max-width: 26em;">An independent app studio in {{ site.place }}, making calm, private apps for iPhone, iPad, Apple Watch and Mac.</p>
+          <a class="brand" href="{{ t.home }}">{% include "partials/lockup-img.njk" %}</a>
+          <p style="margin-top: 12px; max-width: 26em;">{{ t.footer.about }}</p>
         </div>
         <div>
-          <h2>apps</h2>
+          <h2>{{ t.footer.apps }}</h2>
           <ul>
             {%- for app in apps %}
-            <li><a href="/{{ app.slug }}/">{{ app.name }}</a></li>
+            <li><a href="/{{ app.slug }}/">{{ (app.arabicName or app.name) if lang == "ar" else app.name }}</a></li>
             {%- endfor %}
           </ul>
         </div>
         <div>
-          <h2>studio</h2>
+          <h2>{{ t.footer.studio }}</h2>
           <ul>
-            <li><a href="/#apps">All apps</a></li>
+            <li><a href="{{ t.home }}#apps">{{ t.footer.allApps }}</a></li>
             {%- if collections.posts and collections.posts.length %}
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/blog/">{{ t.footer.blog }}</a></li>
             {%- endif %}
-            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/privacy/">{{ t.footer.privacy }}</a></li>
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           </ul>
         </div>
       </div>
-      <p class="legal">© {{ build.year }} Lunabit Labs · Made in {{ site.place }}. Apple, the Apple logo, iPhone, iPad, Apple Watch and Mac are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+      <p class="legal">© {{ build.year }} Lunabit Labs · {{ t.footer.legal }}</p>
     </div>
   </footer>
 </body>

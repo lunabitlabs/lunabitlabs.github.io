@@ -6,6 +6,10 @@
     "storeName": "Miqat: Prayer Times",
     "subtitle": "Simple prayer times and Qibla",
     "summary": "A sky that follows the real sun, a countdown to the next prayer, and the Hijri calendar. Free, with no ads.",
+    "ar": {
+      "subtitle": "مواقيت الصلاة والقبلة ببساطة",
+      "summary": "سماء تتبع الشمس الحقيقية، وعدٌّ تنازلي للصلاة القادمة، والتقويم الهجري. مجاني وبلا إعلانات."
+    },
     "platforms": [
       "iPhone",
       "iPad",
@@ -25,6 +29,10 @@
     "storeName": "Tiqan: Calisthenics Workout",
     "subtitle": "Adaptive bodyweight plans",
     "summary": "Pick a goal (strength, a skill or mobility), and the plan levels up, holds or eases off after every session.",
+    "ar": {
+      "subtitle": "خطط تمارين بوزن الجسم تتكيّف معك",
+      "summary": "اختر هدفك: القوة، أو مهارة جديدة، أو المرونة. وبعد كل حصة تدريب، ترتقي الخطة أو تثبت أو تخفّف عنك."
+    },
     "platforms": [
       "iPhone",
       "iPad",
@@ -46,6 +54,10 @@
     "storeName": "Thaqib: Family Good Deeds",
     "subtitle": "Prayers, good deeds, rewards",
     "summary": "Kids check in their prayers and good deeds, a grown-up says yes, and stars turn into rewards your family chooses.",
+    "ar": {
+      "subtitle": "صلوات، وأعمال صالحة، ومكافآت",
+      "summary": "يسجّل الأطفال صلواتهم وأعمالهم الصالحة، ويوافق أحد الكبار، فتتحوّل النجوم إلى مكافآت تختارها عائلتك."
+    },
     "platforms": [
       "iPhone",
       "iPad"
@@ -66,6 +78,10 @@
     "storeName": "Miqdar",
     "subtitle": "A private food and nutrition coach",
     "summary": "No account to create and no server of ours: your food log stays on your device and in your own iCloud.",
+    "ar": {
+      "subtitle": "مدرّب طعام وتغذية يحفظ خصوصيتك",
+      "summary": "لا حساب تنشئه ولا خادم لنا: سجلّ طعامك يبقى على جهازك وفي حسابك على iCloud."
+    },
     "platforms": [
       "iPhone"
     ],
@@ -83,6 +99,10 @@
     "storeName": "Aan",
     "subtitle": "Reminders that know your day",
     "summary": "Your reminders and your calendar in one calm place. Aan works with the lists and calendars you already have in Apple's Reminders and Calendar.",
+    "ar": {
+      "subtitle": "تذكيرات تعرف يومك",
+      "summary": "تذكيراتك وتقويمك في مكان هادئ واحد. يعمل آن مع القوائم والتقويمات الموجودة لديك في تطبيقَي التذكيرات والتقويم من Apple."
+    },
     "platforms": [
       "iPhone",
       "iPad"

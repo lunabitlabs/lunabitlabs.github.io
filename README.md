@@ -21,6 +21,7 @@ published and the live site stays as it was.
 | Address | File |
 |---|---|
 | `/` | `src/index.njk` |
+| `/ar/` | `src/ar/index.njk`, the home page in Arabic, right to left |
 | `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there: `"status": "live"` apps as cards under "on the App Store" (`src/_includes/partials/app-card.njk`), `"soon"` apps as rows under "in the lab" (`app-row.njk`) |
 | `/<app>/` | `src/<app>/index.njk` |
 | `/<app>/privacy/` | `src/<app>/privacy.njk` |
@@ -30,7 +31,18 @@ published and the live site stays as it was.
 
 - **Every app's name, subtitle, platforms, App Store ID and colours** are in
   `src/_data/apps.json`. The home page's list and the footer read it.
-  Add an app there, then give it a folder like `src/miqat/`.
+  Add an app there, then give it a folder like `src/miqat/`. Each app's Arabic
+  subtitle and summary are its `"ar"`; the Arabic page shows its `arabicName`
+  (or its Latin name if it has none).
+- **Arabic:** a page is Arabic and right to left with `lang: ar` in its front
+  matter. The words around every page (menu, footer, the app list's labels,
+  the phones' descriptions) are in `src/_data/i18n.js`, in both languages; each
+  page keeps its own copy. `/` and `/ar/` share the phones
+  (`partials/hero-shots.njk`) and the app list (`partials/app-lists.njk`), so
+  change their copy together. Pages with a version in the other language list
+  it in `translations:`, which the menu's language link and search engines use.
+  Arabic headings and labels are in Noto Kufi Arabic (self-hosted, OFL), reading
+  text in the system's Arabic.
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,
   `policy` for privacy and terms, `post` for the blog).

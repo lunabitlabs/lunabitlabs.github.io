@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+lang: ar
+title: تطبيقات صغيرة، صُنعت بعناية
+description: Lunabit Labs استوديو تطبيقات مستقل في البحرين، يصنع تطبيقات هادئة تحفظ خصوصيتك لأجهزة iPhone وiPad وApple Watch وMac، وتأخذ مكانها في يومك دون ضجيج.
+# The home page in Arabic, right to left. The same page in English is src/index.njk: change both together.
+# Words around the page (menu, footer, app list labels) are in src/_data/i18n.js; each app's Arabic copy is "ar" in apps.json.
+translations: { en: "/", ar: "/ar/" }
+---
+{%- set t = i18n.ar %}
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">استوديو تطبيقات مستقل · {{ site.placeAr }}</p>
+    <h1>تطبيقات صغيرة، صُنعت <span class="nowrap">بعناية.<span class="cursor" aria-hidden="true"></span></span></h1>
+    <p class="lead">في Lunabit Labs نصنع تطبيقات هادئة تحفظ خصوصيتك لأجهزة iPhone وiPad وApple Watch وMac، وتأخذ مكانها في يومك دون ضجيج.</p>
+    <div class="actions">
+      <a class="button" href="#apps">شاهد التطبيقات</a>
+      <a class="button secondary" href="#contact">تواصل معنا</a>
+    </div>
+    {% include "partials/hero-shots.njk" %}
+  </div>
+</section>
+
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>التطبيقات</h2>
+      <p>كل تطبيق يُتقن مهمة واحدة، ولا يقف في طريقك.</p>
+    </div>
+    {% include "partials/app-lists.njk" %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>كيف نصنعها</h2>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>الخصوصية من الأساس</h3>
+        <p>بلا إعلانات، ولا أدوات تتبّع من جهات خارجية، ولا نبيع شيئًا. و<a href="/privacy/">سياسة الخصوصية</a> لكل تطبيق تقول بوضوح ما يحفظه وأين.</p>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <h3>مصنوعة لأجهزة Apple</h3>
+        <p>مبنية بأُطر Apple نفسها لأجهزة iPhone وiPad وApple Watch وMac، فيبدو كل تطبيق جزءًا من جهازك.</p>
+      </div>
+      <div class="principle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <h3>العربية والإنجليزية</h3>
+        <p>صُنعت في {{ site.placeAr }}. ميقات وثاقب بالعربية كاملةً، من اليمين إلى اليسار، وبالإنجليزية أيضًا.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="narrow">
+    <h2>راسلنا</h2>
+    <p>سؤال، أو فكرة، أو شيء لا يعمل كما ينبغي؟ اكتب لنا في أي وقت.</p>
+    <a class="button" href="mailto:{{ site.email }}" dir="ltr">{{ site.email }}</a>
+  </div>
+</section>

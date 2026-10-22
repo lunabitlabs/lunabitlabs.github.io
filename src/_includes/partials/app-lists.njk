@@ -1,0 +1,19 @@
+{#- The home page's apps, in the page's language: "live" apps as cards, "soon" apps as rows. #}
+{%- set liveApps = apps | byStatus("live") %}
+{%- set labApps = apps | byStatus("soon") %}
+{%- if liveApps.length %}
+<h3 class="group-label">{{ t.apps.live }}</h3>
+<ul class="app-list app-list--live">
+  {%- for app in liveApps %}
+  {% include "partials/app-card.njk" %}
+  {%- endfor %}
+</ul>
+{%- endif %}
+{%- if labApps.length %}
+<h3 class="group-label">{{ t.apps.lab }}</h3>
+<ul class="app-list app-list--lab">
+  {%- for app in labApps %}
+  {% include "partials/app-row.njk" %}
+  {%- endfor %}
+</ul>
+{%- endif %}
