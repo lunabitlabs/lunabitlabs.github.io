@@ -207,17 +207,18 @@ p { margin: 0 0 1em; }
 .lab-item .subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; text-wrap: balance; }
 @media (max-width: 520px) { .lab-item { grid-template-columns: 48px minmax(0, 1fr); } .lab-item > img { width: 48px; height: 48px; } .lab-item .chip.soon { grid-column: 2; justify-self: start; margin-top: 6px; } }
 
-/* Principles */
-.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-@media (max-width: 860px) { .principles { grid-template-columns: 1fr; } }
-.principle { background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
-.principle svg { width: 30px; height: 30px; color: var(--accent); margin-bottom: 16px; }
-.principle h3 { font-size: 18px; margin-bottom: 8px; }
-.principle p { margin: 0; color: var(--body); }
+/* Principles: lighter than the app cards above them. No card, just a hairline, the icon beside the label, and a line. */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 36px; }
+@media (max-width: 860px) { .principles { grid-template-columns: 1fr; gap: 26px; } }
+.principle { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 12px; align-items: center; padding-top: 20px; border-top: 1px solid var(--line); }
+.principle svg { width: 24px; height: 24px; color: var(--accent); }
+.principle h3 { font-size: 17px; }
+.principle h3 [lang="ar"] { font-weight: 600; }
+.principle p { grid-column: 1 / -1; margin: 10px 0 0; color: var(--muted); }
 
 .contact { text-align: center; }
 .contact h2 { font-size: clamp(26px, 4vw, 32px); }
-.contact p { color: var(--muted); font-size: 16px; margin: 14px auto 26px; max-width: 52ch; }
+.contact p { color: var(--muted); font-size: 16px; margin: 14px auto 26px; max-width: 52ch; text-wrap: balance; }
 
 /* App landing pages */
 /* A soft scrim under the app's own colours keeps white text readable on their lighter ends. */
