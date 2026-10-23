@@ -168,11 +168,11 @@
     var gold = el("path", { d: outline, class: "star-gold", fill: "url(#starFill)" });
     var count = demo.querySelector("[data-star-count]");
     var label = demo.querySelector("[data-star-label]");
+    // In Arabic, as the app writes it: «6 من 10», «4 نقاط وتكتمل!» (Arabic counts 1, 2 and 3–10 differently).
     var words = document.documentElement.lang === "ar" ? {
       full: "نجمة جديدة!", every: "كل 10 نقاط تصنع نجمة",
       of: function (n) { return n + " من 10"; },
-      // Arabic counts 1, 2 and 3–10 differently.
-      left: function (n) { return n === 1 ? "بقيت نقطة واحدة لتكتمل!" : n === 2 ? "بقيت نقطتان لتكتمل!" : "بقيت " + n + " نقاط لتكتمل!"; }
+      left: function (n) { return n === 1 ? "نقطة واحدة وتكتمل!" : n === 2 ? "نقطتان وتكتمل!" : n + " نقاط وتكتمل!"; }
     } : {
       full: "New star!", every: "Every 10 points make a star",
       of: function (n) { return n + " of 10"; },
