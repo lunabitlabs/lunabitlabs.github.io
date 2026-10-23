@@ -259,5 +259,3 @@ footer.foot { position: relative; z-index: 2; border-top: 1px solid var(--border
 :root[lang="ar"] .hero h1 { line-height: 1.25; font-weight: 600; }
 :root[lang="ar"] h2 { line-height: 1.3; }
 :root[lang="ar"] .section-eyebrow { text-transform: none; font-size: 0.9rem; }
-/* The day runs right to left, like the prayer list under it: Fajr on the right, Isha on the left. */
-:root[lang="ar"] .sunpath { transform: scaleX(-1); }

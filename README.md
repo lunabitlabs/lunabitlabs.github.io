@@ -51,6 +51,11 @@ published and the live site stays as it was.
   Change a page and its Arabic one together. An app's Arabic page is `arPage`
   in `apps.json`, and the Arabic home page, footer and phones link to it.
   Thaqib's star outline is shared by both pages in `partials/thaqib-defs.svg`.
+  Screenshots of the apps in Arabic sit in `src/miqat/img/ar/` and
+  `src/thaqib/img/ar/`, with the same names as the English ones; the Arabic
+  pages and the Arabic home page's phones use them. Their words follow the
+  apps' Arabic: Miqat's live sky in Arabic-Indic digits («المغرب بعد ٣٦ دقيقة»),
+  Thaqib's star card as «4 نقاط وتكتمل!».
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,
   `policy` for privacy and terms, `post` for the blog).

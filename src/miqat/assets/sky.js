@@ -15,18 +15,22 @@
   var PLACE = { name: "Makkah", lat: 21.4225, lon: 39.8262, tz: "Asia/Riyadh" };
   var PRAYERS = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"];
   var ARABIC = document.documentElement.lang === "ar";
+  // In Arabic, as the app writes it: Arabic-Indic digits, «المغرب بعد ٣٦ دقيقة»,
+  // «٧ س ٣٦ د», «٥:٠٢ ص», and the Hijri year without هـ.
   var WORDS = ARABIC ? {
     names: { fajr: "الفجر", sunrise: "الشروق", dhuhr: "الظهر", asr: "العصر", maghrib: "المغرب", isha: "العشاء" },
     months: ["محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
       "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"],
-    era: " هـ", next: function (name) { return name + " بعد"; },
-    minutes: "د", hours: "س", locale: "ar-u-nu-latn"
+    next: function (name) { return name + " بعد"; },
+    minutes: "دقيقة", hours: "س", minutesShort: "د", locale: "ar-u-nu-arab",
+    digits: function (n) { return String(n).replace(/[0-9]/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[d]; }); }
   } : {
     names: { fajr: "Fajr", sunrise: "Sunrise", dhuhr: "Dhuhr", asr: "Asr", maghrib: "Maghrib", isha: "Isha" },
     months: ["Muharram", "Safar", "Rabi' al-Awwal", "Rabi' al-Thani", "Jumada al-Awwal", "Jumada al-Thani",
       "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"],
-    era: "", next: function (name) { return name + " in"; },
-    minutes: "min", hours: "h", minutesShort: "m", locale: "en-US"
+    next: function (name) { return name + " in"; },
+    minutes: "min", hours: "h", minutesShort: "m", locale: "en-US",
+    digits: function (n) { return String(n); }
   };
   var HOUR = 3600 * 1000;
   var rad = function (d) { return d * Math.PI / 180; };
@@ -245,8 +249,9 @@
 
   function countdown(ms) {
     var minutes = Math.max(1, Math.ceil(ms / 60000));
-    if (minutes < 60) return minutes + "<small>" + WORDS.minutes + "</small>";
-    return Math.floor(minutes / 60) + "<small>" + WORDS.hours + "</small> " + (minutes % 60) + "<small>" + (WORDS.minutesShort || WORDS.minutes) + "</small>";
+    var n = WORDS.digits;
+    if (minutes < 60) return n(minutes) + "<small>" + WORDS.minutes + "</small>";
+    return n(Math.floor(minutes / 60)) + "<small>" + WORDS.hours + "</small> " + n(minutes % 60) + "<small>" + WORDS.minutesShort + "</small>";
   }
 
   // ?at=2026-10-20T09:00:00Z shows the sky at that moment (for checking the
@@ -297,7 +302,7 @@
 
     // Words. The Hijri day turns at Maghrib, as in the app.
     var hijri = parts(hijriFormat, now >= today.maghrib ? new Date(now.getTime() + 24 * HOUR) : now);
-    hero.querySelector("[data-sky-date]").textContent = hijri.day + " " + WORDS.months[hijri.month - 1] + " " + hijri.year + WORDS.era;
+    hero.querySelector("[data-sky-date]").textContent = WORDS.digits(hijri.day) + " " + WORDS.months[hijri.month - 1] + " " + WORDS.digits(hijri.year);
     hero.querySelector("[data-sky-next]").textContent = WORDS.next(WORDS.names[next.prayer]);
     hero.querySelector("[data-sky-count]").innerHTML = countdown(next.time - now);
 
