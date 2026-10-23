@@ -3,7 +3,7 @@ title: "Miqat: Prayer Times and Qibla"
 permalink: /miqat/
 # Miqat's own page, outside the studio layout (like Tiqan's): the app's type,
 # its live sky over Makkah, and its night. Styles in assets/miqat.css, the sky
-# in assets/sky.js.
+# in assets/sky.js. The same page in Arabic is src/ar/miqat.njk: change both together.
 ---
 {%- set app = apps | appBySlug("miqat") -%}
 {%- set store = "https://apps.apple.com/app/id" + app.appStoreId -%}
@@ -15,6 +15,9 @@ permalink: /miqat/
   <title>Miqat: Prayer Times and Qibla</title>
   <meta name="description" content="Miqat shows the day's prayers on a sky that follows the sun: a countdown to the next prayer, the sun's path from Fajr to Isha, the Qibla, and the Hijri calendar. For iPhone, iPad and Apple Watch, in English and Arabic.">
   <link rel="canonical" href="{{ site.url }}/miqat/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/miqat/">
+  <link rel="alternate" hreflang="ar" href="{{ site.url }}/ar/miqat/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/miqat/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Miqat: Prayer times, told by the sky">
   <meta property="og:description" content="A calm prayer times app for iPhone, iPad and Apple Watch, in English and Arabic.">
@@ -43,6 +46,7 @@ permalink: /miqat/
         <a href="#watch">Watch</a>
         <a href="#ipad">iPad</a>
         <a href="/miqat/privacy/">Privacy</a>
+        <a class="nav-lang" href="/ar/miqat/" lang="ar" hreflang="ar">العربية</a>
         <a class="nav-cta" href="{{ store }}">Download</a>
       </div>
     </div>

@@ -1,6 +1,6 @@
 {#- The shipped apps, as they look: Tiqan's dark screen sits between Miqat's and Thaqib's light ones. Alt text is in src/_data/i18n.js. #}
 <div class="hero-shots">
-  <a class="phone phone--left" href="/miqat/"><img src="/miqat/img/today-dubai.jpg" alt="{{ t.shots.miqat }}" width="598" height="1300"></a>
-  <a class="phone phone--center" href="/tiqan/"><img src="/assets/home/tiqan-today.jpg" alt="{{ t.shots.tiqan }}" width="598" height="1300"></a>
-  <a class="phone phone--right" href="/thaqib/"><img src="/thaqib/img/kid.jpg" alt="{{ t.shots.thaqib }}" width="598" height="1300"></a>
+  <a class="phone phone--left" href="{{ apps | appBySlug("miqat") | appUrl(lang) }}"><img src="/miqat/img/today-dubai.jpg" alt="{{ t.shots.miqat }}" width="598" height="1300"></a>
+  <a class="phone phone--center" href="{{ apps | appBySlug("tiqan") | appUrl(lang) }}"><img src="/assets/home/tiqan-today.jpg" alt="{{ t.shots.tiqan }}" width="598" height="1300"></a>
+  <a class="phone phone--right" href="{{ apps | appBySlug("thaqib") | appUrl(lang) }}"><img src="/thaqib/img/kid.jpg" alt="{{ t.shots.thaqib }}" width="598" height="1300"></a>
 </div>

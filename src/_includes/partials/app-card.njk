@@ -6,9 +6,9 @@
   <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="72" height="72">
   <div class="title">
     {%- if inArabic %}
-    <h4><a href="/{{ app.slug }}/">{{ displayName }}</a></h4>
+    <h4><a href="{{ app | appUrl(lang) }}">{{ displayName }}</a></h4>
     {%- else %}
-    <h4><a href="/{{ app.slug }}/">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h4>
+    <h4><a href="{{ app | appUrl(lang) }}">{{ app.name }}</a>{% if app.arabicName %} <span class="ar" lang="ar">{{ app.arabicName }}</span>{% endif %}</h4>
     {%- endif %}
     <p class="subtitle">{{ copy.subtitle }}</p>
   </div>

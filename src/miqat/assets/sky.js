@@ -4,7 +4,8 @@
 // (SunPath.swift, SunPathView.swift), and the times come from adhan-js, the
 // JavaScript sibling of the adhan-swift library Miqat uses, with the Umm
 // al-Qura method Miqat picks for Saudi Arabia (Isha 30 minutes later in
-// Ramadan, as ServicesPrayerTimeCalculator.swift adds).
+// Ramadan, as ServicesPrayerTimeCalculator.swift adds). The same script runs
+// /miqat/ and /ar/miqat/: on a page with <html lang="ar"> its words are Arabic.
 (function () {
   "use strict";
 
@@ -13,9 +14,20 @@
   var adhan = window.adhan;
   var PLACE = { name: "Makkah", lat: 21.4225, lon: 39.8262, tz: "Asia/Riyadh" };
   var PRAYERS = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"];
-  var NAMES = { fajr: "Fajr", sunrise: "Sunrise", dhuhr: "Dhuhr", asr: "Asr", maghrib: "Maghrib", isha: "Isha" };
-  var MONTHS = ["Muharram", "Safar", "Rabi' al-Awwal", "Rabi' al-Thani", "Jumada al-Awwal", "Jumada al-Thani",
-    "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"];
+  var ARABIC = document.documentElement.lang === "ar";
+  var WORDS = ARABIC ? {
+    names: { fajr: "الفجر", sunrise: "الشروق", dhuhr: "الظهر", asr: "العصر", maghrib: "المغرب", isha: "العشاء" },
+    months: ["محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة",
+      "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"],
+    era: " هـ", next: function (name) { return name + " بعد"; },
+    minutes: "د", hours: "س", locale: "ar-u-nu-latn"
+  } : {
+    names: { fajr: "Fajr", sunrise: "Sunrise", dhuhr: "Dhuhr", asr: "Asr", maghrib: "Maghrib", isha: "Isha" },
+    months: ["Muharram", "Safar", "Rabi' al-Awwal", "Rabi' al-Thani", "Jumada al-Awwal", "Jumada al-Thani",
+      "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"],
+    era: "", next: function (name) { return name + " in"; },
+    minutes: "min", hours: "h", minutesShort: "m", locale: "en-US"
+  };
   var HOUR = 3600 * 1000;
   var rad = function (d) { return d * Math.PI / 180; };
   var deg = function (r) { return r * 180 / Math.PI; };
@@ -100,7 +112,16 @@
   // ---------- Prayer times in Makkah ----------
   var partsFormat = new Intl.DateTimeFormat("en-US", { timeZone: PLACE.tz, year: "numeric", month: "numeric", day: "numeric" });
   var hijriFormat = new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { timeZone: PLACE.tz, year: "numeric", month: "numeric", day: "numeric" });
-  var timeFormat = new Intl.DateTimeFormat("en-US", { timeZone: PLACE.tz, hour: "numeric", minute: "2-digit" });
+  var timeFormat = new Intl.DateTimeFormat(WORDS.locale, { timeZone: PLACE.tz, hour: "numeric", minute: "2-digit" });
+  // "5:02" and "AM" (or "ص") apart, whatever space the browser puts between them.
+  function clock(date) {
+    var time = "", period = "";
+    timeFormat.formatToParts(date).forEach(function (p) {
+      if (p.type === "dayPeriod") period = p.value;
+      else if (p.type === "hour" || p.type === "minute" || (p.type === "literal" && p.value.trim() === ":")) time += p.value;
+    });
+    return time + "<small>" + period + "</small>";
+  }
   function parts(format, date) {
     var out = {};
     format.formatToParts(date).forEach(function (p) { out[p.type] = parseInt(p.value, 10); });
@@ -224,8 +245,8 @@
 
   function countdown(ms) {
     var minutes = Math.max(1, Math.ceil(ms / 60000));
-    if (minutes < 60) return minutes + "<small>min</small>";
-    return Math.floor(minutes / 60) + "<small>h</small> " + (minutes % 60) + "<small>m</small>";
+    if (minutes < 60) return minutes + "<small>" + WORDS.minutes + "</small>";
+    return Math.floor(minutes / 60) + "<small>" + WORDS.hours + "</small> " + (minutes % 60) + "<small>" + (WORDS.minutesShort || WORDS.minutes) + "</small>";
   }
 
   // ?at=2026-10-20T09:00:00Z shows the sky at that moment (for checking the
@@ -276,8 +297,8 @@
 
     // Words. The Hijri day turns at Maghrib, as in the app.
     var hijri = parts(hijriFormat, now >= today.maghrib ? new Date(now.getTime() + 24 * HOUR) : now);
-    hero.querySelector("[data-sky-date]").textContent = hijri.day + " " + MONTHS[hijri.month - 1] + " " + hijri.year;
-    hero.querySelector("[data-sky-next]").textContent = NAMES[next.prayer] + " in";
+    hero.querySelector("[data-sky-date]").textContent = hijri.day + " " + WORDS.months[hijri.month - 1] + " " + hijri.year + WORDS.era;
+    hero.querySelector("[data-sky-next]").textContent = WORDS.next(WORDS.names[next.prayer]);
     hero.querySelector("[data-sky-count]").innerHTML = countdown(next.time - now);
 
     // The list: today's prayers; after Isha, tomorrow's Fajr.
@@ -286,8 +307,7 @@
     if (now >= today.isha) shown.fajr = tomorrow.fajr;
     Array.prototype.forEach.call(list.querySelectorAll("[data-prayer]"), function (row) {
       var p = row.dataset.prayer, time = shown[p];
-      var text = timeFormat.format(time).split(" ");
-      row.querySelector("[data-time]").innerHTML = text[0] + "<small>" + (text[1] || "") + "</small>";
+      row.querySelector("[data-time]").innerHTML = clock(time);
       row.classList.toggle("is-current", !!current && current.prayer === p && current.time.getTime() === time.getTime());
       row.classList.toggle("is-next", next.prayer === p && next.time.getTime() === time.getTime());
       row.classList.toggle("is-past", time <= now && !(current && current.prayer === p && current.time.getTime() === time.getTime()));

@@ -2,7 +2,8 @@
 // stars (OnboardingSky.swift's SkyDrawing, a little livelier here), its
 // "next star" filling dot by dot (StarRules.swift, StarProgress.swift), and
 // sections that rise in as they scroll into view. With Reduce Motion nothing
-// moves: the sky is still and the star shows full.
+// moves: the sky is still and the star shows full. The same script runs
+// /thaqib/ and /ar/thaqib/: on a page with <html lang="ar"> its words are Arabic.
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -167,6 +168,16 @@
     var gold = el("path", { d: outline, class: "star-gold", fill: "url(#starFill)" });
     var count = demo.querySelector("[data-star-count]");
     var label = demo.querySelector("[data-star-label]");
+    var words = document.documentElement.lang === "ar" ? {
+      full: "نجمة جديدة!", every: "كل 10 نقاط تصنع نجمة",
+      of: function (n) { return n + " من 10"; },
+      // Arabic counts 1, 2 and 3–10 differently.
+      left: function (n) { return n === 1 ? "بقيت نقطة واحدة لتكتمل!" : n === 2 ? "بقيت نقطتان لتكتمل!" : "بقيت " + n + " نقاط لتكتمل!"; }
+    } : {
+      full: "New star!", every: "Every 10 points make a star",
+      of: function (n) { return n + " of 10"; },
+      left: function (n) { return n + " more " + (n === 1 ? "dot" : "dots") + " to finish!"; }
+    };
 
     var show = function (filled) {
       var full = filled >= CORNERS;
@@ -176,8 +187,8 @@
         lines[k].classList.toggle("on", full || k < filled - 1);
       }
       demo.classList.toggle("full", full);
-      count.textContent = full ? "New star!" : filled + " of 10";
-      label.textContent = full ? "Every 10 points make a star" : (10 - filled) + " more " + (10 - filled === 1 ? "dot" : "dots") + " to finish!";
+      count.textContent = full ? words.full : words.of(filled);
+      label.textContent = full ? words.every : words.left(10 - filled);
     };
 
     if (still) {
