@@ -80,7 +80,7 @@
           <h2>{{ t.footer.apps }}</h2>
           <ul>
             {%- for app in apps %}
-            <li><a href="/{{ app.slug }}/">{{ (app.arabicName or app.name) if lang == "ar" else app.name }}</a></li>
+            <li><a href="{{ app | appUrl(lang) }}">{{ (app.arabicName or app.name) if lang == "ar" else app.name }}</a></li>
             {%- endfor %}
           </ul>
         </div>

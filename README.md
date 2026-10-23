@@ -22,6 +22,7 @@ published and the live site stays as it was.
 |---|---|
 | `/` | `src/index.njk` |
 | `/ar/` | `src/ar/index.njk`, the home page in Arabic, right to left |
+| `/ar/miqat/`, `/ar/thaqib/` | `src/ar/miqat.njk`, `src/ar/thaqib.njk`: Miqat's and Thaqib's pages in Arabic |
 | `/apps/` | forwards to the home page's list (`/#apps`); each app is listed once there: `"status": "live"` apps as cards under "on the App Store" (`src/_includes/partials/app-card.njk`), `"soon"` apps as rows under "in the lab" (`app-row.njk`) |
 | `/<app>/` | `src/<app>/index.njk` |
 | `/<app>/privacy/` | `src/<app>/privacy.njk` |
@@ -43,6 +44,13 @@ published and the live site stays as it was.
   it in `translations:`, which the menu's language link and search engines use.
   Arabic headings and labels are in Noto Kufi Arabic (self-hosted, OFL), reading
   text in the system's Arabic.
+- **Miqat and Thaqib in Arabic** (`src/ar/miqat.njk`, `src/ar/thaqib.njk`) are
+  the same pages as their English ones, with the same styles and scripts:
+  `sky.js` and `thaqib.js` write their words (prayer names, the Hijri month,
+  the countdown, the star's "6 of 10") in Arabic on a page with `lang="ar"`.
+  Change a page and its Arabic one together. An app's Arabic page is `arPage`
+  in `apps.json`, and the Arabic home page, footer and phones link to it.
+  Thaqib's star outline is shared by both pages in `partials/thaqib-defs.svg`.
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,
   `policy` for privacy and terms, `post` for the blog).

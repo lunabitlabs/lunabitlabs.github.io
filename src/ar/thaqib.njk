@@ -1,0 +1,297 @@
+---
+title: "ثاقب: الأعمال الصالحة تصبح نجومًا"
+permalink: /ar/thaqib/
+# Thaqib's page in Arabic, right to left: the same page as src/thaqib/index.njk
+# (change both together), with the same styles (thaqib.css) and moving parts
+# (thaqib.js, which writes Arabic on a page with lang="ar").
+---
+{%- set app = apps | appBySlug("thaqib") -%}
+{%- set store = "https://apps.apple.com/app/id" + app.appStoreId -%}
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ثاقب: الأعمال الصالحة تصبح نجومًا</title>
+  <meta name="description" content="يحوّل ثاقب الأعمال الصالحة إلى نجوم. يسجّل الأطفال صلواتهم وأعمالهم الصالحة، ويوافق أحد الكبار، فتصبح النجوم مكافآت تختارها عائلتك. لأجهزة iPhone وiPad، بالعربية والإنجليزية.">
+  <link rel="canonical" href="{{ site.url }}/ar/thaqib/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/thaqib/">
+  <link rel="alternate" hreflang="ar" href="{{ site.url }}/ar/thaqib/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/thaqib/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_BH">
+  <meta property="og:title" content="ثاقب: الأعمال الصالحة تصبح نجومًا">
+  <meta property="og:description" content="يسجّل الأطفال صلواتهم وأعمالهم الصالحة، ويوافق أحد الكبار، فتصبح النجوم مكافآت تختارها عائلتك.">
+  <meta property="og:url" content="{{ site.url }}/ar/thaqib/">
+  <meta property="og:image" content="{{ site.url }}/thaqib/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1A1450">
+  <meta name="apple-itunes-app" content="app-id={{ app.appStoreId }}">
+  <link rel="icon" href="/assets/apps/thaqib-256.png">
+  <link rel="apple-touch-icon" href="/assets/apps/thaqib-256.png">
+  <link rel="stylesheet" href="/thaqib/assets/thaqib.css?v={{ build.version }}">
+  <script defer src="/thaqib/assets/thaqib.js?v={{ build.version }}"></script>
+</head>
+<body>
+  {% include "partials/thaqib-defs.svg" %}
+  <div class="glows" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <canvas class="sky" data-sky aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="ثاقب">
+    <div class="nav-inner">
+      <a class="brand" href="/ar/thaqib/"><img src="/assets/apps/thaqib-256.png" alt="" width="36" height="36"><b>ثاقب</b></a>
+      <div class="nav-links">
+        <a href="#how">كيف يعمل</a>
+        <a href="#kids">الأطفال</a>
+        <a href="#parents">الوالدان</a>
+        <a href="#family">العائلة</a>
+        <a href="/thaqib/privacy/#privacy-ar">الخصوصية</a>
+        <a class="nav-lang" href="/thaqib/" lang="en" hreflang="en">English</a>
+        <a class="gold-button" href="{{ store }}"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star" fill="#4A2A00"/></svg>تنزيل</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero wrap">
+      <div>
+        <span class="pill">iPhone · iPad · العربية والإنجليزية</span>
+        <h1>الأعمال الصالحة تصبح <span class="goldtext">نجومًا</span>.</h1>
+        <p class="lede">يسجّل الأطفال صلواتهم وأعمالهم الصالحة، ويوافق أحد الكبار، فتتحوّل النجوم إلى مكافآت تختارها عائلتك.</p>
+        <div class="cta">
+          <a class="appstore" href="{{ store }}"><img src="/assets/img/app-store-badge.svg" alt="حمّل ثاقب من App Store" width="162" height="54"></a>
+          <span class="note">التنزيل مجاني · وابدأ بشهر مجاني</span>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="orbs">
+          <img src="/thaqib/img/art/02-orb-shadows-dark.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/03-orb-yellow.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/04-orb-coral.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/05-orb-teal.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/06-orb-highlights.png" alt="" width="640" height="640" style="opacity: 0.8;">
+        </div>
+        <div class="star">
+          <img src="/thaqib/img/art/07-star-shadow-dark.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/08-star.png" alt="" width="640" height="640">
+          <img src="/thaqib/img/art/09-star-highlight.png" alt="" width="640" height="640" style="opacity: 0.6;">
+        </div>
+      </div>
+    </header>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="head" data-rise>
+          <span class="kicker">كيف يعمل</span>
+          <h2>عشر نقاط، نجمة واحدة.</h2>
+          <p>كل عمل صالح يوافق عليه أحد الكبار نقطة، وكل 10 نقاط تصنع نجمة.</p>
+        </div>
+        <div class="steps">
+          <div class="step" data-rise>
+            <div class="num">1</div>
+            <h3>اضغط ما فعلته</h3>
+            <p>يسجّل الأطفال ما يعملون من خير: صلواتهم الخمس، وقراءة القرآن، والكلمة الطيبة، والمساعدة في البيت، والواجبات المدرسية.</p>
+          </div>
+          <div class="step" data-rise>
+            <div class="num">2</div>
+            <h3>يوافق أحد الكبار</h3>
+            <p>وافق على التسجيلات واحدًا واحدًا أو دفعة واحدة، مع ثوانٍ للتراجع.</p>
+          </div>
+          <div class="step" data-rise>
+            <div class="num">3</div>
+            <h3>النجوم تصبح مكافآت</h3>
+            <p>تتحوّل النجوم إلى مكافآت تختارها عائلتك، من وقت إضافي أمام الشاشة إلى نزهة.</p>
+          </div>
+          <div class="star-card" data-star-demo data-rise>
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"></svg>
+            <div class="words" aria-live="off">
+              <small>نجمتي القادمة</small>
+              <strong data-star-count>6 من 10</strong>
+              <span data-star-label>بقيت 4 نقاط لتكتمل!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kids">
+      <div class="wrap">
+        <div class="row">
+          <div class="copy" data-rise>
+            <span class="kicker">وضع الأطفال</span>
+            <h2>صفحة خاصة بهم.</h2>
+            <p>الصلوات الخمس، والأعمال الصالحة مصنّفة، ونجمة تمتلئ كلما جاءت النقاط.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>اضغط ما فعلته لتسجّله، ويُحتسب حين يوافق أحد الكبار</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>أنفق النجوم على المكافآت، أو ادّخرها لهدف</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>بالعربية والإنجليزية، على iPhone وiPad</li>
+            </ul>
+            <ul class="chips" aria-label="أنواع الأعمال الصالحة">
+              <li style="background: #E0E4FF; color: #3B4BB8;">الصلوات</li>
+              <li style="background: #D7F5EE; color: #0E7A66;">القرآن</li>
+              <li style="background: #E7E2FF; color: #5A4BD1;">الأخلاق والآداب</li>
+              <li style="background: #DDF2FF; color: #1E5BB8;">عادات يومية</li>
+              <li style="background: #FFF0C8; color: #8A4B00;">أعمال البيت</li>
+              <li style="background: #FFE1EC; color: #B0306C;">المدرسة</li>
+            </ul>
+          </div>
+          <div class="phone-wrap" data-rise>
+            <div class="phone"><img src="/thaqib/img/kid.jpg" alt="صفحة عالية في ثاقب: نجمتها القادمة 6 من 10، والصلوات الخمس، و«عملت شيئًا جميلًا!»" width="598" height="1300" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head" data-rise>
+          <span class="kicker">الصلوات</span>
+          <h2>الصلوات الخمس.</h2>
+          <p>لكلٍّ منها سماؤها، من الفجر إلى العشاء.</p>
+        </div>
+        <div class="prayers" data-rise>
+          <div class="prayer" style="background: linear-gradient(180deg, #3B3191, #E58FB5);"><svg aria-hidden="true"><use href="/thaqib/img/glyphs.svg#g-fajr"/></svg><b>الفجر</b></div>
+          <div class="prayer" style="background: linear-gradient(180deg, #3D93E0, #8FCBFF);"><svg aria-hidden="true"><use href="/thaqib/img/glyphs.svg#g-dhuhr"/></svg><b>الظهر</b></div>
+          <div class="prayer" style="background: linear-gradient(180deg, #E08A1E, #FFC970);"><svg aria-hidden="true"><use href="/thaqib/img/glyphs.svg#g-asr"/></svg><b>العصر</b></div>
+          <div class="prayer" style="background: linear-gradient(180deg, #D84874, #FF9A62);"><svg aria-hidden="true"><use href="/thaqib/img/glyphs.svg#g-maghrib"/></svg><b>المغرب</b></div>
+          <div class="prayer" style="background: linear-gradient(180deg, #1F185C, #4B3CC4);"><svg aria-hidden="true"><use href="/thaqib/img/glyphs.svg#g-isha"/></svg><b>العشاء</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="row row--rev">
+          <div class="copy" data-rise>
+            <span class="kicker">سماؤهم</span>
+            <h2>كل نجمة، في سماء خاصة بهم.</h2>
+            <p>تحفظ سماء كل طفل كل نجمة كسبها، والأعمال التي صنعتها.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>اضغط أي نجمة لترى كيف كُسبت</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>النجوم المتاحة للإنفاق، ظاهرة دائمًا</li>
+            </ul>
+          </div>
+          <div class="phone-wrap" data-rise>
+            <div class="phone"><img src="/thaqib/img/sky.jpg" alt="سماء عالية في ثاقب: سبع نجوم كسبتها منذ أكتوبر، تصل بينها خطوط منقّطة، و«النجمة رقم 7!»" width="598" height="1300" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="copy" data-rise>
+            <span class="kicker">المكافآت</span>
+            <h2>النجوم تصبح مكافآت.</h2>
+            <p>مكافآت تختارها عائلتك، من وقت إضافي أمام الشاشة إلى نزهة. أنفق النجوم الآن، أو ادّخرها لشيء أكبر.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>14 مكافأة جاهزة، أو أضف مكافآتك</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>يطلب الأطفال، ويوافق أحد الكبار</li>
+            </ul>
+          </div>
+          <div class="phone-wrap" data-rise>
+            <div class="phone"><img src="/thaqib/img/spend.jpg" alt="«أنفق نجومي» في ثاقب: هدف «اختيار الفيلم»، ومكافآت للادّخار لها" width="598" height="1300" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parents">
+      <div class="wrap">
+        <div class="row row--rev">
+          <div class="copy" data-rise>
+            <span class="kicker">وضع الوالدين</span>
+            <h2>كل ما ينتظرك، في مكان واحد.</h2>
+            <p>تعرض صفحة اليوم كل تسجيل وطلب ينتظرك.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>وافق واحدًا واحدًا أو دفعة واحدة، مع ثوانٍ للتراجع</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>اختر ما يراه كل طفل: فئات كاملة، أو عملًا عملًا</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>44 عملًا صالحًا و14 مكافأة جاهزة، أو أضف ما تشاء</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>امنح نقاطًا أو مكافأة بنفسك، أو اخصم نقاطًا عند الهفوات</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>إشعار واحد لكل طفل حين ينتظرك شيء</li>
+              <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star"/></svg>مقفل برمز العائلة، وبـFace ID أو Touch ID على جهازك</li>
+            </ul>
+          </div>
+          <div class="pair" data-rise>
+            <div class="phone back"><img src="/thaqib/img/sees.jpg" alt="اختيار ما يراه الطفل في ثاقب" width="598" height="1300" loading="lazy"></div>
+            <div class="phone front"><img src="/thaqib/img/today.jpg" alt="صفحة اليوم للكبار في ثاقب: نجوم كل طفل وما ينتظرك" width="598" height="1300" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="family">
+      <div class="wrap family">
+        <div data-rise>
+          <span class="kicker">العائلة كلها</span>
+          <h2>معًا، ومتزامنون.</h2>
+          <div class="counts">
+            <div class="count"><b>4</b><span>كبار</span></div>
+            <div class="count"><b>6</b><span>أطفال</span></div>
+          </div>
+          <ul class="bubbles" aria-hidden="true">
+            <li style="background: #6C5CE7;">ع</li><li style="background: #7FC4FF;">ي</li><li style="background: #FF8CC6;">م</li>
+            <li style="background: #6EE7B7;">س</li><li style="background: #FFC83D;">ح</li><li style="background: #FF9E6B;">ر</li>
+          </ul>
+          <p style="color: var(--text-2); font-size: 1.1rem; margin: 0;">أعطِ طفلك iPhone أو iPad خاصًا به يفتح مباشرة على صفحته، أو شاركوا iPad واحدًا للعائلة. وكل شيء يتزامن عبر iCloud.</p>
+        </div>
+        <div class="ipad" data-rise><img src="/thaqib/img/ipad-kid.jpg" alt="صفحة طفل في ثاقب على iPad" width="1125" height="1500" loading="lazy"></div>
+      </div>
+    </section>
+
+    <section id="private">
+      <div class="wrap">
+        <div class="head" data-rise>
+          <span class="kicker">خصوصية من الأساس</span>
+          <h2>لعائلتك، ولا أحد غيرها.</h2>
+          <p>تبقى معلومات عائلتك على أجهزتك وفي iCloud الخاص بك، ولا تُشارَك إلا مع من تدعوهم. ونحن لا نستطيع رؤيتها.</p>
+        </div>
+        <div class="cards" data-rise>
+          <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 5l18 14"/></svg><b>بلا إعلانات</b><p>لا شيء نبيعه لأطفالك.</p></div>
+          <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M3 3l18 18"/></svg><b>بلا أدوات تحليل</b><p>لا نقيس عائلتك.</p></div>
+          <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM3 3l18 18"/></svg><b>بلا تتبّع</b><p>لا عبر التطبيقات، ولا عبر الويب.</p></div>
+          <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>بلا حسابات جديدة</b><p>يكفي حساب Apple وiCloud.</p></div>
+        </div>
+        <p style="text-align: center; margin: 22px 0 0;"><a href="/thaqib/privacy/#privacy-ar" style="color: var(--gold); font-weight: 800;">اقرأ سياسة الخصوصية</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="plan" data-rise>
+          <div>
+            <span class="kicker">عائلة ثاقب</span>
+            <h2>التنزيل مجاني، والشهر الأول علينا.</h2>
+            <p>يفتح اشتراك عائلة ثاقب كل شيء للعائلة كلها، على كل أجهزتكم. يبدأ المشتركون الجدد بشهر مجاني، ثم يصبح اشتراكًا سنويًا بالسعر الظاهر في التطبيق.</p>
+            <p>والعائلات التي اشترت ثاقب قبل أن يصبح اشتراكًا تحتفظ بكل شيء مجانًا، للأبد.</p>
+            <p style="margin: 0;"><a href="/thaqib/terms/#terms-ar">شروط الخدمة</a> · <a href="/thaqib/privacy/#privacy-ar">سياسة الخصوصية</a></p>
+          </div>
+          <img class="badge-star" src="/thaqib/img/art/08-star.png" alt="" width="640" height="640" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="support">
+      <div class="wrap">
+        <div class="welcome-star" aria-hidden="true">
+          <i></i><i></i>
+          <svg viewBox="0 0 100 100"><use href="#star" fill="url(#iconGold)" stroke="rgba(240, 122, 18, 0.35)" stroke-width="1.45"/><ellipse cx="40" cy="40" rx="15" ry="7.6" fill="url(#glint)" transform="rotate(-30 40 40)"/></svg>
+        </div>
+        <h2>ثاقب يحوّل الأعمال الصالحة إلى نجوم.</h2>
+        <p>لأجهزة iPhone وiPad، بالعربية والإنجليزية.</p>
+        <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="حمّل ثاقب من App Store" width="168" height="56" style="height: 56px;"></a>
+        <p style="margin: 40px auto 0; font-size: 1rem;">لديك سؤال أو ملاحظة؟ راسلنا على <a href="mailto:{{ site.email }}" style="color: var(--gold); font-weight: 800;">{{ site.email }}</a>. ولإدارة الاشتراك أو إلغائه، افتح تطبيق الإعدادات، واضغط اسمك، ثم الاشتراكات؛ أو في ثاقب: الإعدادات ← الاشتراك ← الإدارة في App Store.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div class="who"><img src="/assets/apps/thaqib-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/ar/">Lunabit Labs</a></span></div>
+      <nav aria-label="روابط ثاقب">
+        <a href="/thaqib/terms/#terms-ar">شروط الخدمة</a>
+        <a href="/thaqib/privacy/#privacy-ar">سياسة الخصوصية</a>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="{{ store }}">App Store</a>
+        <a href="/ar/#apps">تطبيقات أخرى</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

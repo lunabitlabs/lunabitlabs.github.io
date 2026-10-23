@@ -45,6 +45,8 @@ export default function (eleventyConfig) {
   );
   eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
   eleventyConfig.addFilter("appBySlug", (apps, slug) => apps.find((app) => app.slug === slug));
+  // An app's page in the reader's language: its Arabic page ("arPage" in apps.json) on Arabic pages, if it has one.
+  eleventyConfig.addFilter("appUrl", (app, lang) => (lang === "ar" && app.arPage) || `/${app.slug}/`);
   // The home page lists "live" apps (on the App Store) apart from "soon" ones (in the lab).
   eleventyConfig.addFilter("byStatus", (apps, status) => apps.filter((app) => app.status === status));
 
