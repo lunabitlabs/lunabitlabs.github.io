@@ -176,9 +176,6 @@ permalink: /tiqan/
     .phone--tilt { transform: none; }
     .phone-glow { position: absolute; inset: -34px; z-index: -1; filter: blur(46px); opacity: 0.7;
       background: radial-gradient(ellipse at center, rgba(108,107,255,0.4), transparent 62%); }
-    /* placeholder shown until a screenshot is dropped in */
-    .shot-ph { aspect-ratio: 1260 / 2736; border-radius: 38px; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(160deg, #141b2c, #0c1120); color: var(--muted-2); font-size: 0.8rem; text-align: center; padding: 20px; }
 
     /* ---------- Stats ---------- */
     .stats { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -342,14 +339,14 @@ permalink: /tiqan/
       <div class="hero-media">
         <div class="phone-glow"></div>
         <div class="phone phone--tilt">
-          <img src="screen-today.jpg" alt="Tiqan Today screen — your workout for the day with a readiness score and muscle map">
+          <img src="screen-today.jpg" alt="Tiqan's Today screen: Full Body A, with today's recovery, its three exercises and the muscles they train">
         </div>
       </div>
     </section>
 
     <!-- STATS -->
     <section class="stats">
-      <div class="stat"><div class="stat-num">203</div><div class="stat-label">Exercises</div></div>
+      <div class="stat"><div class="stat-num">235</div><div class="stat-label">Exercises</div></div>
       <div class="stat"><div class="stat-num">6</div><div class="stat-label">Strength Levels</div></div>
       <div class="stat"><div class="stat-num">3</div><div class="stat-label">Goals</div></div>
       <div class="stat"><div class="stat-num">4</div><div class="stat-label">Skills</div></div>
@@ -363,15 +360,15 @@ permalink: /tiqan/
         <h2>A plan that builds itself — and adjusts every session.</h2>
         <p class="f-lede">No spreadsheets, no guessing which progression comes next. Tiqan writes the program from your goal and equipment, then quietly moves it up or down based on your real performance.</p>
         <ul class="points">
-          <li>Push, pull and legs each progress on their own — two strong sessions level you up, two rough ones ease you back</li>
-          <li>Six strength levels per movement, Foundation to Elite, with harder variations swapped in as you climb</li>
-          <li>Equipment-aware — floor only, a pull-up bar, or a full bar-and-rings setup (with a real no-bar pull path)</li>
-          <li>Choose a 3-day full-body or 6-day push / pull / legs split</li>
+          <li>Push, pull and legs each climb their own ladder, from Start to Level 6, and each level is one exercise</li>
+          <li>Level checks: after two top workouts in a row, one set of the next exercise moves you up. Two workouts in a row below the floor take you back one level; missed workouts never do</li>
+          <li>Equipment-aware: the floor, a pull-up bar, dip bars or rings. With no bar at all, pull climbs its own ladder of rows, in a door frame and under a table</li>
+          <li>Full body 3 days a week, upper and lower 4, or push, pull and legs 6. Or train on any day, with a weekly target and nothing counted as missed</li>
         </ul>
       </div>
       <div class="f-media" style="--glow: rgba(64,112,255,0.26);">
         <div class="phone">
-          <img src="screen-plan.jpg" alt="Tiqan adaptive program overview" onerror="this.parentNode.innerHTML='&lt;div class=\'shot-ph\'&gt;Adaptive plan&lt;/div&gt;'">
+          <img src="screen-programs.jpg" alt="Tiqan's Programs tab: the active 3-Day Full Body plan and its week, and your own programs">
         </div>
       </div>
     </section>
@@ -381,7 +378,7 @@ permalink: /tiqan/
       <div class="band-head">
         <span class="section-eyebrow">One app, three goals</span>
         <h2>Keep a plan for everything you're chasing.</h2>
-        <p>Build Strength, Master a Skill, and Move Better — hold all three at once and switch between them with a tap.</p>
+        <p>Build Strength, Master a Skill and Move Better. The free version runs one goal at a time; Tiqan Pro runs up to three together.</p>
       </div>
       <div class="goals">
         <div class="goal" style="--accent: linear-gradient(90deg,#4070FF,#6698FF); --accent-solid:#6698FF;">
@@ -406,21 +403,22 @@ permalink: /tiqan/
     <section class="feature feature--rev" id="workout">
       <div class="f-text">
         <span class="section-eyebrow">In the Workout</span>
-        <h2>Guided sets, honest feedback, no nagging.</h2>
-        <p class="f-lede">Timed and rep-based sets, rest timers, get-ready countdowns and tempo cues walk you through the session. After a set you can log how it felt — it's optional, and it quietly shapes what comes next.</p>
+        <h2>Guided sets, fewer questions, no nagging.</h2>
+        <p class="f-lede">Rep sets, holds that count up past their target, rest timers and a get-ready countdown walk you through the session. The first set of each main exercise is a test set: as many good reps as you can, and your targets start from what you did, not a guess.</p>
         <ul class="points">
-          <li>Rate Form, Tempo and Effort per set — only the toughest signal affects your progression</li>
+          <li>No ratings after every set. After a main exercise's last set, one question: how many more you could have done. Mark Form broke down on any set when it happens</li>
+          <li>Too hard? Switch to the easier exercise mid-workout, or to one set of each main for a while</li>
           <li>Autoregulation that respects your day: stop an exercise early when a set drops off, or finish the whole session lighter on a rough day</li>
-          <li>Live Activity and Dynamic Island keep your set and rest timer on the Lock Screen</li>
+          <li>Live Activity and Dynamic Island keep the exercise, your set and the rest timer on the Lock Screen, with +15 s and Skip rest</li>
           <li>Get interrupted? Your workout is restored exactly where you left off</li>
         </ul>
       </div>
       <div class="f-media duo" style="--glow: rgba(251,113,133,0.22);">
         <div class="phone phone--back">
-          <img src="screen-workout-rate.jpg" alt="Tiqan rest screen with Form, Tempo and Effort ratings">
+          <img src="screen-workout-check.jpg" alt="A Push Level 4 check: one set of Push-Ups, as many good reps as you can">
         </div>
         <div class="phone phone--front">
-          <img src="screen-workout-active.jpg" alt="Tiqan active workout screen — exercise demo, reps, and Log Set button">
+          <img src="screen-workout-set.jpg" alt="A set in progress: Low Incline Push-Up, set 1 of 3, target 6 reps, with the demo, its tempo and a How-to button">
         </div>
       </div>
     </section>
@@ -429,15 +427,15 @@ permalink: /tiqan/
     <section class="band" id="progress">
       <div class="band-head">
         <span class="section-eyebrow">Progress &amp; Insights</span>
-        <h2>See exactly what's working.</h2>
-        <p>Connect Apple Health and Tiqan turns your training into real signal — daily readiness, training load, movement coverage and personal records, all charted from your own data.</p>
+        <h2>Your level, your climb, and what comes next.</h2>
+        <p>Progress charts your strength climb, how close the next level is, your consistency and new bests, all free. Connect Apple Health and Recovery reads your sleep, HRV and resting heart rate: it gives advice and never changes your targets. Tiqan Pro adds deeper insights, like why a movement is stuck and how your sleep affects your workouts.</p>
       </div>
       <div class="showcase">
         <div class="phone">
-          <img src="screen-progress-a.jpg" alt="Tiqan Progress — strength level plus Apple Health metrics: resting heart rate, HRV, sleep and active energy">
+          <img src="screen-you.jpg" alt="The You tab: Level 2 of 6, Push, Pull and Legs levels, and the strength climb chart">
         </div>
         <div class="phone">
-          <img src="screen-progress-b.jpg" alt="Tiqan Progress — recovery readiness score and the weekly training-load chart">
+          <img src="screen-levelup.jpg" alt="Level up: Push Level 4, after passing the check with 7 good Push-Ups, and what changes in the next workout">
         </div>
       </div>
     </section>
@@ -445,19 +443,23 @@ permalink: /tiqan/
     <!-- FEATURE: LIBRARY & MUSCLE MAP -->
     <section class="feature feature--rev">
       <div class="f-text">
-        <span class="section-eyebrow">Library &amp; Muscle Map</span>
-        <h2>203 exercises, every muscle mapped.</h2>
-        <p class="f-lede">Every movement comes with a demonstration animation, form guidance, and an interactive anatomical map so you can see exactly what you're training — and find your next exercise by tapping a muscle.</p>
+        <span class="section-eyebrow">Search &amp; How-tos</span>
+        <h2>235 exercises, each with a how-to.</h2>
+        <p class="f-lede">The Search tab holds every exercise, your programs and every term in the app. Look anything up, or add an exercise to a quick workout.</p>
         <ul class="points">
-          <li>203 exercises across push, pull, legs and core — one library for adaptive and custom work</li>
-          <li>Animated demos, target muscles, tempo and step-by-step instructions on every exercise</li>
-          <li>Interactive front / back muscle map on workout cards and exercise sheets</li>
+          <li>Push, pull, legs and hips, core, and mobility and stretches: one library for your plan and the workouts you build</li>
+          <li>Animated demos for nearly every exercise, with numbered steps and the muscles it works, front and back</li>
+          <li>Your program's exercises and what's next on each ladder, right at the top</li>
           <li>Easier and harder neighbours that follow <em>your</em> progression ladder</li>
+          <li>Building your own workout? Filter exercises by muscle on a figure you can turn and zoom</li>
         </ul>
       </div>
-      <div class="f-media" style="--glow: rgba(61,204,121,0.2);">
-        <div class="phone">
-          <img src="screen-library.jpg" alt="Tiqan exercise library with interactive muscle map" onerror="this.parentNode.innerHTML='&lt;div class=\'shot-ph\'&gt;Muscle map&lt;/div&gt;'">
+      <div class="f-media duo" style="--glow: rgba(61,204,121,0.2);">
+        <div class="phone phone--back">
+          <img src="screen-muscles.jpg" alt="Muscles: chest and triceps picked on the body figure, with 96 exercises to show">
+        </div>
+        <div class="phone phone--front">
+          <img src="screen-search.jpg" alt="The Search tab: 235 exercises with how-tos, the exercises in your program and what's next on your ladders">
         </div>
       </div>
     </section>
@@ -498,15 +500,14 @@ permalink: /tiqan/
       <div class="band-head">
         <span class="section-eyebrow">Apple Watch<span class="pro-tag">PRO</span></span>
         <h2>Leave your phone. Not your plan.</h2>
-        <p>Build your plan on iPhone, then train from your wrist. The watch runs the whole session on its own — leave the phone in the locker — tracking heart rate and calories live, and every rep, rest and rating syncs back to count exactly like a phone workout: banking clean sessions and moving your levels.</p>
+        <p>Build your plan on iPhone, then train from your wrist. With Tiqan Pro the watch runs the whole workout with your phone in your bag, showing heart rate and calories live, and every set syncs back to count toward your levels like a phone workout. Open your iPhone mid-session and it follows along. Heart rate and calories during iPhone workouts, and the watch face complications, are free.</p>
       </div>
       <div class="watch-strip">
-        <div class="watch"><img src="watch-start.jpg" alt="Apple Watch — today's workout ready to start, with readiness"></div>
-        <div class="watch"><img src="watch-workout.jpg" alt="Apple Watch — logging reps during a workout"></div>
-        <div class="watch"><img src="watch-rest.jpg" alt="Apple Watch — rest timer between sets"></div>
-        <div class="watch"><img src="watch-metrics.jpg" alt="Apple Watch — live heart rate, time and calories"></div>
-        <div class="watch"><img src="watch-summary.jpg" alt="Apple Watch — workout complete summary"></div>
-        <div class="watch"><img src="watch-face.jpg" alt="Apple Watch face — Tiqan complication with today's workout"></div>
+        <div class="watch"><img src="watch-start.jpg" alt="Apple Watch: today's Full Body B, recovery good, ready to start"></div>
+        <div class="watch"><img src="watch-set.jpg" alt="Apple Watch: a set of Push-Ups, target 12 reps, ready to log"></div>
+        <div class="watch"><img src="watch-hold.jpg" alt="Apple Watch: a Flexed-Arm Hang counting up past its 15 second target"></div>
+        <div class="watch"><img src="watch-check.jpg" alt="Apple Watch: a Push Level 3 check, one set of as many good reps as you can"></div>
+        <div class="watch"><img src="watch-rest.jpg" alt="Apple Watch: the rest timer, with the next set"></div>
       </div>
     </section>
 
@@ -521,22 +522,22 @@ permalink: /tiqan/
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="7" rx="2"/><path d="M6 16h6M6 19h10"/></svg></div>
           <strong>Live Activities</strong>
-          <p>Your current set, rest timer and next exercise stay on the Lock Screen and in the Dynamic Island — no need to open the app.</p>
+          <p>Your exercise, set, rest timer and what's next stay on the Lock Screen and in the Dynamic Island, with +15 s and Skip rest right there.</p>
         </div>
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 9l2 2 3-4"/></svg></div>
           <strong>Widgets &amp; Siri Shortcuts</strong>
-          <p>Today's workout on your Home Screen, tap to start — or just say “Start my workout in Tiqan.”</p>
+          <p>Today's workout and your strength level on the Home Screen, a start button on the Lock Screen — or just say “Start my workout in Tiqan.”</p>
         </div>
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
           <strong>iCloud sync</strong>
-          <p>Programs, progress and levels stay in step across iPhone, iPad, Mac and Watch, automatically.</p>
+          <p>Programs, progress and levels stay in step across iPhone, iPad and Mac through iCloud, and on your Apple Watch through your iPhone.</p>
         </div>
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
           <strong>Apple Health</strong>
-          <p>Workouts, heart rate and calories sync to Health. Read-once authorization — asked for once, never nagged.</p>
+          <p>Each finished workout and its active energy is saved to Health, once. Sleep, HRV and resting heart rate feed Recovery. It's optional, you choose each item, and Recovery still works from your training alone.</p>
         </div>
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
@@ -546,7 +547,7 @@ permalink: /tiqan/
         <div class="ecard">
           <div class="eicon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 7.3H22l-6 4.4 2.3 7.3-6.3-4.5-6.3 4.5L8 14.7 2 10.3h7.5z"/></svg></div>
           <strong>Native, all the way down</strong>
-          <p>Dynamic Type, VoiceOver, haptics and full light / dark — built with SwiftUI for the platform, not ported to it.</p>
+          <p>Larger text, Dynamic Type, VoiceOver, haptics and light or dark — built with SwiftUI for the platform, not ported to it.</p>
         </div>
       </div>
     </section>
@@ -554,7 +555,7 @@ permalink: /tiqan/
     <!-- FINAL CTA -->
     <section class="final">
       <h2>Train smarter. Get stronger.</h2>
-      <p>Answer a few questions and Tiqan builds your plan. Free to start — upgrade to Tiqan Pro when you want every goal, every skill, and the full strength ladder.</p>
+      <p>Answer a few questions and Tiqan builds your plan. Free to start — upgrade to Tiqan Pro when you want every goal, all four skills, the top of the strength ladder and workouts on Apple Watch.</p>
       <a class="appstore" href="{{ store }}" style="display:inline-block;">
         <img src="appstorebadge.svg" alt="Download on the App Store" style="height:56px;">
       </a>
