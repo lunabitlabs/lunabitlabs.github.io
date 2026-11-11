@@ -1,7 +1,7 @@
 {#- An app still in the lab, on the home page: one compact row; the whole row opens the app's page. -#}
 {%- set inArabic = lang == "ar" %}
 {%- set copy = app.ar if inArabic and app.ar else app %}
-<li class="lab-item">
+<li class="lab-item" style="--tint: {{ app.tint }};">
   <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="56" height="56">
   <div class="title">
     {%- if inArabic %}

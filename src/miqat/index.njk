@@ -29,6 +29,7 @@ permalink: /miqat/
   <link rel="icon" href="/assets/apps/miqat-256.png">
   <link rel="apple-touch-icon" href="/assets/apps/miqat-256.png">
   <link rel="stylesheet" href="/miqat/assets/miqat.css?v={{ build.version }}">
+  <link rel="stylesheet" href="/assets/css/frame.css?v={{ build.version }}">
   <script defer src="/miqat/assets/adhan.min.js"></script>
   <script defer src="/miqat/assets/sky.js?v={{ build.version }}"></script>
 </head>
@@ -36,6 +37,7 @@ permalink: /miqat/
   <div class="ambient"></div>
   <div class="grain"></div>
 
+  {% include "partials/lb-strip.njk" %}
   <nav class="nav" aria-label="Miqat">
     <div class="nav-inner">
       <a class="brand" href="/miqat/"><img src="/assets/apps/miqat-256.png" alt="" width="34" height="34"><span>Miqat</span></a>
@@ -231,23 +233,14 @@ permalink: /miqat/
       </div>
     </section>
 
-    <section class="final">
+    <section class="final" id="support">
       <h2>Prayer on time, with clarity and peace.</h2>
       <p>Miqat is free, with no ads. For iPhone, iPad and Apple Watch, in English and Arabic.</p>
       <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="Download Miqat on the App Store" width="168" height="56" style="height: 56px;"></a>
+      {% include "partials/lb-help.njk" %}
     </section>
   </main>
 
-  <footer class="foot">
-    <div class="foot-inner">
-      <div class="foot-brand"><img src="/assets/apps/miqat-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/">Lunabit Labs</a></span></div>
-      <div class="foot-links">
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="/miqat/privacy/">Privacy Policy</a>
-        <a href="{{ store }}">App Store</a>
-        <a href="/apps/">More apps</a>
-      </div>
-    </div>
-  </footer>
+  {% include "partials/lb-footer.njk" %}
 </body>
 </html>

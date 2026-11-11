@@ -330,4 +330,49 @@ html[lang="ar"] .chip.soon { font-size: 13.5px; }
 .site-footer .brand img { height: 24px; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .site-footer a { color: var(--body); }
-.site-footer .legal { margin-top: 34px; }
+
+/* Home: each live app's card carries the app's own tint behind its icon and name (apps.json "tint"),
+   apps in the lab show it as a thin edge, and "say hello" is a navy panel with the moon tag. */
+.app-list--live .app-item { isolation: isolate; overflow: hidden; padding-top: 24px; row-gap: 4px; }
+/* The tint sits in the grid's first row, behind the icon and name, and reaches the card's edges
+   (the card clips it), so it is as tall as that row whatever the width or the subtitle's lines. */
+.app-list--live .app-item::before {
+  content: ""; grid-row: 1; grid-column: 1 / -1; align-self: stretch; position: relative; z-index: -1; margin: -24px -24px -22px;
+  background: linear-gradient(180deg, rgba(8, 10, 24, 0.24) 0%, rgba(8, 10, 24, 0.44) 100%), var(--tint);
+}
+.app-list--live .app-item > img { grid-row: 1; grid-column: 1; }
+.app-list--live .app-item .title { grid-row: 1; grid-column: 2; }
+.app-list--live .app-item > img { filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28)); }
+.app-list--live .app-item h4, .app-list--live .app-item h4 a { color: #fff; }
+.app-list--live .app-item h4 .ar { color: rgba(255, 255, 255, 0.8); }
+.app-list--live .app-item .subtitle { color: rgba(255, 255, 255, 0.86); }
+.app-list--live .app-item .summary { margin-top: 38px; }
+.app-list--live .app-item:hover { border-color: color-mix(in srgb, var(--line) 70%, transparent); transform: translateY(-3px); box-shadow: var(--shadow); }
+@media (prefers-reduced-motion: reduce) { .app-list--live .app-item:hover { transform: none; } }
+
+/* Subtitles read as sentences, so they're in the reading font, not the mono. */
+.app-item .subtitle, .lab-item .subtitle { font-family: var(--font-text); font-size: 14.5px; font-weight: 500; letter-spacing: 0; }
+
+/* In the lab: the app's tint as a thin edge. */
+.lab-item { isolation: isolate; overflow: hidden; padding-inline-start: 22px; }
+.lab-item::before { content: ""; position: absolute; z-index: -1; inset-block: 0; inset-inline-start: 0; width: 6px; background: var(--tint); }
+
+/* Say hello: a navy panel carrying the moon tag. */
+.contact .narrow {
+  max-width: 1056px; background: #0F1526; color: #F3EEDF; border-radius: 28px; padding: 64px 28px 60px;
+  box-shadow: inset 0 0 0 1px rgba(243, 238, 223, 0.06);
+}
+.contact .narrow::before {
+  content: ""; display: block; width: 84px; height: 40px; margin: 0 auto 22px;
+  background: url("/assets/brand/lunabit-mark-cream.svg") center / contain no-repeat;
+}
+.contact h2 { color: #F3EEDF; }
+.contact p { color: rgba(243, 238, 223, 0.74); }
+.contact .button { background: #F2B544; color: #0F1526; }
+@media (prefers-color-scheme: dark) { .contact .narrow { background: #141B30; box-shadow: inset 0 0 0 1px rgba(243, 238, 223, 0.08); } }
+@media (max-width: 1100px) { .contact .narrow { margin-inline: 22px; } }
+
+/* Footer: the copyright on its own line, the trademark notice small beneath it. */
+.site-footer .legal { margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; gap: 6px 28px; flex-wrap: wrap; }
+.site-footer .legal p { margin: 0; }
+.site-footer .legal .tm { font-size: 12.5px; opacity: 0.8; max-width: 62ch; }

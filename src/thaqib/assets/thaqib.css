@@ -271,15 +271,6 @@ h2 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); line-height: 1.05; font-weight: 80
 .rise { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
 .rise.in { opacity: 1; transform: none; }
 
-/* ---------- Footer ---------- */
-footer { border-top: 1px solid var(--line); background: rgba(16, 12, 52, 0.5); }
-.foot { max-width: var(--maxw); margin: 0 auto; padding: 28px 24px 36px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--text-3); font-size: 0.95rem; }
-.foot a { color: var(--text-2); text-decoration: none; font-weight: 700; }
-.foot a:hover { color: #fff; }
-.foot nav { display: flex; gap: 18px; flex-wrap: wrap; }
-.foot .who { display: flex; align-items: center; gap: 10px; }
-.foot .who img { width: 28px; height: 28px; }
-
 /* ---------- Arabic (/ar/thaqib/), right to left ---------- */
 /* SF Arabic (Rounded where the system has it) on Apple devices. Arabic letters join, so no
    letter-spacing or capitals, and they need more line height than the Latin headings. */

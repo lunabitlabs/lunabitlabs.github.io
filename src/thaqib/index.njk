@@ -43,6 +43,7 @@ permalink: /thaqib/
     })();
   </script>
   <link rel="stylesheet" href="/thaqib/assets/thaqib.css?v={{ build.version }}">
+  <link rel="stylesheet" href="/assets/css/frame.css?v={{ build.version }}">
   <script defer src="/thaqib/assets/thaqib.js?v={{ build.version }}"></script>
 </head>
 <body>
@@ -50,6 +51,7 @@ permalink: /thaqib/
   <div class="glows" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <canvas class="sky" data-sky aria-hidden="true"></canvas>
 
+  {% include "partials/lb-strip.njk" %}
   <nav class="nav" aria-label="Thaqib">
     <div class="nav-inner">
       <a class="brand" href="/thaqib/"><img src="/assets/apps/thaqib-256.png" alt="" width="36" height="36"><b>Thaqib</b><span lang="ar">ثاقب</span></a>
@@ -289,22 +291,12 @@ permalink: /thaqib/
         <h2>Thaqib turns good deeds into stars.</h2>
         <p>For iPhone and iPad, in English and Arabic.</p>
         <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="Download Thaqib on the App Store" width="168" height="56" style="height: 56px;"></a>
-        <p style="margin: 40px auto 0; font-size: 1rem;">Questions or feedback? Write to <a href="mailto:{{ site.email }}" style="color: var(--gold); font-weight: 800;">{{ site.email }}</a>. To manage or cancel the subscription, open the Settings app, tap your name, then Subscriptions; in Thaqib, it's in Settings › Subscription › Manage in the App Store.</p>
+        {% include "partials/lb-help.njk" %}
+        <p class="lb-note">To manage or cancel the subscription, open the Settings app, tap your name, then Subscriptions; in Thaqib, it's in Settings › Subscription › Manage in the App Store.</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="foot">
-      <div class="who"><img src="/assets/apps/thaqib-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/">Lunabit Labs</a></span></div>
-      <nav aria-label="Thaqib links">
-        <a href="/thaqib/terms/">Terms of Service</a>
-        <a href="/thaqib/privacy/">Privacy Policy</a>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="{{ store }}">App Store</a>
-        <a href="/apps/">More apps</a>
-      </nav>
-    </div>
-  </footer>
+  {% include "partials/lb-footer.njk" %}
 </body>
 </html>

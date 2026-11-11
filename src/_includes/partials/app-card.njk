@@ -2,7 +2,7 @@
 {%- set inArabic = lang == "ar" %}
 {%- set copy = app.ar if inArabic and app.ar else app %}
 {%- set displayName = (app.arabicName or app.name) if inArabic else app.name %}
-<li class="app-item">
+<li class="app-item" style="--tint: {{ app.tint }};">
   <img src="/assets/apps/{{ app.slug }}-256.png" alt="" width="72" height="72">
   <div class="title">
     {%- if inArabic %}

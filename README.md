@@ -59,9 +59,19 @@ published and the live site stays as it was.
 - **Shared look:** `src/assets/css/site.css`, and the layouts in
   `src/_includes/layouts/` (`base` for every page, `app` for an app's page,
   `policy` for privacy and terms, `post` for the blog).
+- **The studio's frame on the apps' own pages.** Miqat's, Tiqan's and Thaqib's
+  pages (and the Arabic ones) keep their own bar, colours and type, inside the
+  studio's frame: a thin strip above the app's bar with the lunabit.labs_ lockup,
+  "all apps" and "contact" (`partials/lb-strip.njk`; navy in both modes, as these
+  pages are dark in both, and it scrolls away while the app's bar stays), the same help line under
+  each page's closing words (`partials/lb-help.njk`), and the studio footer with
+  the same columns as every other page, in the app's colours
+  (`partials/lb-footer.njk`). Styles in `src/assets/css/frame.css`, words in
+  `src/_data/i18n.js` (`frame`). An Arabic page says `lang: ar` in its front
+  matter, so the frame is in Arabic there.
 - **Tiqan** keeps its own hand-made page (`src/tiqan/index.njk`, the app's
-  "Vector" palette, its styles inline), with the same top bar, footer and links
-  as Miqat's and Thaqib's; its images sit beside it.
+  "Vector" palette, its styles inline), with the same studio frame as Miqat's and
+  Thaqib's; its images sit beside it.
 - **Miqat** has its own themed page too: `src/miqat/index.njk` (a whole HTML
   document, no shared layout), `src/miqat/assets/miqat.css` and
   `src/miqat/assets/sky.js`. The hero is the live sky over Makkah: the app's sky

@@ -35,7 +35,22 @@ export default {
       allApps: "All apps",
       blog: "Blog",
       privacy: "Privacy",
-      legal: `Made in ${site.place}. Apple, the Apple logo, iPhone, iPad, Apple Watch and Mac are trademarks of Apple Inc. App Store is a service mark of Apple Inc.`,
+      madeIn: `Made in ${site.place}`,
+      trademarks: "Apple, the Apple logo, iPhone, iPad, Apple Watch and Mac are trademarks of Apple Inc. App Store is a service mark of Apple Inc.",
+    },
+    // The studio's frame on each app's own page: the strip above its bar, the
+    // help line under its closing words, and the footer (partials/lb-*.njk).
+    frame: {
+      label: "Lunabit Labs",
+      allApps: "all apps",
+      help: "Questions or feedback?",
+      about: `{app} is made by Lunabit Labs, an independent app studio in ${site.place} making calm, private apps for Apple devices.`,
+      appStore: "App Store",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      support: "Support",
+      // The Arabic half of a policy that has both languages on one page.
+      policyAnchor: { privacy: "", terms: "" },
     },
   },
 
@@ -67,7 +82,19 @@ export default {
       allApps: "كل التطبيقات",
       blog: "المدونة",
       privacy: "الخصوصية",
-      legal: `صُنع في ${site.placeAr}. Apple وشعار Apple وiPhone وiPad وApple Watch وMac علامات تجارية لشركة Apple Inc. وApp Store علامة خدمة لشركة Apple Inc.`,
+      madeIn: `صُنع في ${site.placeAr}`,
+      trademarks: "Apple وشعار Apple وiPhone وiPad وApple Watch وMac علامات تجارية لشركة Apple Inc. وApp Store علامة خدمة لشركة Apple Inc.",
+    },
+    frame: {
+      label: "Lunabit Labs",
+      allApps: "كل التطبيقات",
+      help: "لديك سؤال أو ملاحظة؟",
+      about: `{app} من صنع Lunabit Labs، استوديو تطبيقات مستقل في ${site.placeAr} يصنع تطبيقات هادئة تحفظ خصوصيتك لأجهزة Apple.`,
+      appStore: "App Store",
+      privacy: "سياسة الخصوصية",
+      terms: "شروط الخدمة",
+      support: "الدعم",
+      policyAnchor: { privacy: "#privacy-ar", terms: "#terms-ar" },
     },
   },
 };

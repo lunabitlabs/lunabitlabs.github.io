@@ -1,5 +1,6 @@
 ---
 title: "ميقات: مواقيت الصلاة والقبلة"
+lang: ar
 permalink: /ar/miqat/
 # Miqat's page in Arabic, right to left: the same page as src/miqat/index.njk
 # (change both together), with the same styles (miqat.css) and live sky
@@ -31,6 +32,7 @@ permalink: /ar/miqat/
   <link rel="icon" href="/assets/apps/miqat-256.png">
   <link rel="apple-touch-icon" href="/assets/apps/miqat-256.png">
   <link rel="stylesheet" href="/miqat/assets/miqat.css?v={{ build.version }}">
+  <link rel="stylesheet" href="/assets/css/frame.css?v={{ build.version }}">
   <script defer src="/miqat/assets/adhan.min.js"></script>
   <script defer src="/miqat/assets/sky.js?v={{ build.version }}"></script>
 </head>
@@ -38,6 +40,7 @@ permalink: /ar/miqat/
   <div class="ambient"></div>
   <div class="grain"></div>
 
+  {% include "partials/lb-strip.njk" %}
   <nav class="nav" aria-label="ميقات">
     <div class="nav-inner">
       <a class="brand" href="/ar/miqat/"><img src="/assets/apps/miqat-256.png" alt="" width="34" height="34"><span>ميقات</span></a>
@@ -233,23 +236,14 @@ permalink: /ar/miqat/
       </div>
     </section>
 
-    <section class="final">
+    <section class="final" id="support">
       <h2>الصلاة في وقتها، بوضوح وطمأنينة.</h2>
       <p>ميقات مجاني وبلا إعلانات. لأجهزة iPhone وiPad وApple Watch، بالعربية والإنجليزية.</p>
       <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="حمّل ميقات من App Store" width="168" height="56" style="height: 56px;"></a>
+      {% include "partials/lb-help.njk" %}
     </section>
   </main>
 
-  <footer class="foot">
-    <div class="foot-inner">
-      <div class="foot-brand"><img src="/assets/apps/miqat-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/ar/">Lunabit Labs</a></span></div>
-      <div class="foot-links">
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="/miqat/privacy/#privacy-ar">سياسة الخصوصية</a>
-        <a href="{{ store }}">App Store</a>
-        <a href="/ar/#apps">تطبيقات أخرى</a>
-      </div>
-    </div>
-  </footer>
+  {% include "partials/lb-footer.njk" %}
 </body>
 </html>

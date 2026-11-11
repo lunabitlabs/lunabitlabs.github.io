@@ -1,0 +1,47 @@
+{#- The studio's footer on an app's own page, with the same columns as every other page's (layouts/base.njk),
+    in the app's colours (src/assets/css/frame.css). Needs `app` and `store`; in Arabic with `lang: ar`. #}
+{%- set t = i18n[lang] or i18n.en %}
+{%- set inArabic = lang == "ar" %}
+{%- set appName = (app.arabicName or app.name) if inArabic else app.name %}
+<footer class="lb-foot lb-foot--{{ app.slug }}">
+  <div class="lb-foot-inner">
+    <div class="lb-foot-cols">
+      <div class="lb-about">
+        <a href="{{ t.home }}"><img class="lb-lockup-img" src="/assets/brand/lunabit-lockup-on-dark.svg" alt="Lunabit Labs" width="383" height="50"></a>
+        <p>{{ t.frame.about | replace("{app}", appName) }}</p>
+      </div>
+      <div>
+        <h2>{{ appName if inArabic else (app.name | lower) }}</h2>
+        <ul>
+          <li><a href="{{ store }}">{{ t.frame.appStore }}</a></li>
+          <li><a href="{{ app.privacy }}{{ t.frame.policyAnchor.privacy }}">{{ t.frame.privacy }}</a></li>
+          {%- if app.terms %}
+          <li><a href="{{ app.terms }}{{ t.frame.policyAnchor.terms }}">{{ t.frame.terms }}</a></li>
+          {%- endif %}
+          <li><a href="mailto:{{ site.email }}">{{ t.frame.support }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t.footer.apps }}</h2>
+        <ul>
+          {%- for a in apps %}
+          <li><a href="{{ a | appUrl(lang) }}"{% if a.slug == app.slug %} aria-current="page"{% endif %}>{{ (a.arabicName or a.name) if inArabic else a.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t.footer.studio }}</h2>
+        <ul>
+          <li><a href="{{ t.home }}">Lunabit Labs</a></li>
+          <li><a href="{{ t.home }}#apps">{{ t.footer.allApps }}</a></li>
+          <li><a href="/privacy/">{{ t.footer.privacy }}</a></li>
+          <li><a href="mailto:{{ site.email }}" dir="ltr">{{ site.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-legal">
+      <p>© {{ build.year }} Lunabit Labs · {{ t.footer.madeIn }}</p>
+      <p class="lb-tm">{{ t.footer.trademarks }}</p>
+    </div>
+  </div>
+</footer>

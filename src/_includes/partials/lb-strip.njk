@@ -1,0 +1,9 @@
+{#- The studio's strip above an app's own bar, on Miqat's, Tiqan's and Thaqib's pages: the way back to
+    Lunabit Labs. Navy in both modes, as these pages are dark in both. It scrolls away and the app's bar stays. Styles in src/assets/css/frame.css. #}
+{%- set t = i18n[lang] or i18n.en %}
+<div class="lb-strip">
+  <div class="lb-strip-inner">
+    <a class="lb-lockup" href="{{ t.home }}"><img src="/assets/brand/lunabit-lockup-on-dark.svg" alt="Lunabit Labs" width="383" height="50"></a>
+    <nav aria-label="{{ t.frame.label }}"><a href="{{ t.home }}#apps">{{ t.frame.allApps }}</a><a class="lb-wide" href="{{ t.home }}#contact">{{ t.nav.contact }}</a></nav>
+  </div>
+</div>

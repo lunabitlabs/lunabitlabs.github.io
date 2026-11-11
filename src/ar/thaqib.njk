@@ -1,5 +1,6 @@
 ---
 title: "ثاقب: الأعمال الصالحة تصبح نجومًا"
+lang: ar
 permalink: /ar/thaqib/
 # Thaqib's page in Arabic, right to left: the same page as src/thaqib/index.njk
 # (change both together), with the same styles (thaqib.css) and moving parts
@@ -31,6 +32,7 @@ permalink: /ar/thaqib/
   <link rel="icon" href="/assets/apps/thaqib-256.png">
   <link rel="apple-touch-icon" href="/assets/apps/thaqib-256.png">
   <link rel="stylesheet" href="/thaqib/assets/thaqib.css?v={{ build.version }}">
+  <link rel="stylesheet" href="/assets/css/frame.css?v={{ build.version }}">
   <script defer src="/thaqib/assets/thaqib.js?v={{ build.version }}"></script>
 </head>
 <body>
@@ -38,6 +40,7 @@ permalink: /ar/thaqib/
   <div class="glows" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <canvas class="sky" data-sky aria-hidden="true"></canvas>
 
+  {% include "partials/lb-strip.njk" %}
   <nav class="nav" aria-label="ثاقب">
     <div class="nav-inner">
       <a class="brand" href="/ar/thaqib/"><img src="/assets/apps/thaqib-256.png" alt="" width="36" height="36"><b>ثاقب</b></a>
@@ -277,22 +280,12 @@ permalink: /ar/thaqib/
         <h2>ثاقب يحوّل الأعمال الصالحة إلى نجوم.</h2>
         <p>لأجهزة iPhone وiPad، بالعربية والإنجليزية.</p>
         <a class="appstore" href="{{ store }}" style="display: inline-block;"><img src="/assets/img/app-store-badge.svg" alt="حمّل ثاقب من App Store" width="168" height="56" style="height: 56px;"></a>
-        <p style="margin: 40px auto 0; font-size: 1rem;">لديك سؤال أو ملاحظة؟ راسلنا على <a href="mailto:{{ site.email }}" style="color: var(--gold); font-weight: 800;">{{ site.email }}</a>. ولإدارة الاشتراك أو إلغائه، افتح تطبيق الإعدادات، واضغط اسمك، ثم الاشتراكات؛ أو في ثاقب: الإعدادات ← الاشتراك ← الإدارة في App Store.</p>
+        {% include "partials/lb-help.njk" %}
+        <p class="lb-note">لإدارة الاشتراك أو إلغائه، افتح تطبيق الإعدادات، واضغط اسمك، ثم الاشتراكات؛ أو في ثاقب: الإعدادات ← الاشتراك ← الإدارة في App Store.</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="foot">
-      <div class="who"><img src="/assets/apps/thaqib-256.png" alt="" width="28" height="28"><span>© {{ build.year }} <a href="/ar/">Lunabit Labs</a></span></div>
-      <nav aria-label="روابط ثاقب">
-        <a href="/thaqib/terms/#terms-ar">شروط الخدمة</a>
-        <a href="/thaqib/privacy/#privacy-ar">سياسة الخصوصية</a>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="{{ store }}">App Store</a>
-        <a href="/ar/#apps">تطبيقات أخرى</a>
-      </nav>
-    </div>
-  </footer>
+  {% include "partials/lb-footer.njk" %}
 </body>
 </html>
