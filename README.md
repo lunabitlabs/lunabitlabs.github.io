@@ -29,6 +29,7 @@ published and the live site stays as it was.
 | `/thaqib/terms/` | `src/thaqib/terms.njk` |
 | `/privacy/` | `src/privacy.njk`, every app's policy |
 | `/blog/` | `src/blog/index.njk`, posts in `src/blog/posts/` |
+| `/monday/` | `src/monday/index.njk`, «لقاء الاثنين»: a one-off page for friends, in Arabic, with its styles and script inline. Nothing links to it and it is left out of the sitemap |
 
 - **Every app's name, subtitle, platforms, App Store ID and colours** are in
   `src/_data/apps.json`. The home page's list and the footer read it.
